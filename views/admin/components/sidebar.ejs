@@ -1,0 +1,28 @@
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <h3>Admin Panel</h3>
+        <p><%= typeof adminUsername !== 'undefined' ? adminUsername : '' %></p>
+    </div>
+    <ul class="sidebar-menu">
+        <li>
+            <a href="/admin/news" class="<%= activePage === 'news' ? 'active' : '' %>">
+                <i class="bi bi-newspaper"></i>
+                News Management
+            </a>
+        </li>
+        <li>
+            <a href="/admin/blog" class="<%= activePage === 'blog' ? 'active' : '' %>">
+                <i class="bi bi-journal-text"></i>
+                Blog Management
+            </a>
+        </li>
+        <!-- Future admin links can be added here -->
+    </ul>
+    <div class="sidebar-footer">
+        <a href="/admin/logout">
+            <i class="bi bi-box-arrow-right"></i>
+            <span style="margin-left: 0.5rem;">Logout</span>
+        </a>
+    </div>
+</aside>
+

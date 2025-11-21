@@ -1,0 +1,249 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+/* ---------- RESET ---------- */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* ---------- BODY ---------- */
+body {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* ---------- IMAGE FIX ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.primary{
+  color: #0cacee;
+}
+.secondary{
+  color: #000000;
+}
+
+.footer-bg{
+  background-color: #111;
+}
+
+// header css
+.navbar{
+      background-color: rgba(0, 0, 0, 0.7) !important;
+}
+.navbar-brand{
+  img{
+    width: 125px;
+  }
+}
+.nav-link{
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.navbar-nav > li:hover > a:after{
+    background: #0cacee;
+    width: 80%;
+    left: 10%;
+}
+.navbar-nav > li:hover > a {
+    color: #0cacee !important;
+}
+.navbar-nav > li > a:after{
+    display: block;
+    content: "";
+    height: 4px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    -webkit-transition: all 0.5s 
+ease-in-out;
+    transition: all 0.5s 
+ease-in-out;
+    background: transparent;
+}
+
+.carousel-item{
+  min-height: 650px;
+  height: 650px;
+}
+
+
+.main-title{
+  font-size: 2rem;
+  position: relative;
+  span{
+    font-size: 3rem;
+  }
+  &::before{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 120px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0cacee;
+  }
+  &::after{
+    position: absolute;
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #0cacee;
+    box-shadow: 0 0 0 5px #fff;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.desc{
+  position: relative;
+  &::before{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 120px;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0cacee;
+  }
+  &::after{
+    position: absolute;
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #0cacee;
+    box-shadow: 0 0 0 5px #fff;
+    bottom: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.about-desc{
+  max-width: 800px;
+  margin: auto;
+}
+.about-link{
+  text-decoration: none;
+}
+
+.newsTitle{
+  background-color: #0580c6;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  &::after{
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #0580c6;
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 100%;
+  }
+}
+.newsBody{
+  padding: 30px 15px;
+}
+
+.testimonalSlider{
+  box-shadow: 0 10px 35px 0 rgba(0, 0, 0, .1);
+  position: relative;
+  display: block;
+  padding: 3rem;
+  .carousel-item {
+    min-height: auto;
+    height: auto;
+  }
+  .carousel-caption {
+    position: relative;
+    right: 0;
+    bottom: 1.25rem;
+    left: 0;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: left;
+        margin-top: 1.5rem;
+  }
+  .carousel-control-prev {
+    right: 25px;
+    left: auto;
+}
+}
+.quote-icon{
+    height: 80px;
+    width: 80px !important;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: #18ba60;
+    font-size: 25px;
+    line-height: 80px !important;
+    display: inline-block !important;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.carousel-item{
+  h5{
+    color: #0cacee;
+    font-size: 1rem;
+  }
+  p{
+    color: #777;
+  }
+}
+.testimonalSlider{
+.carousel-control-prev, .carousel-control-next{
+  color: #18ba60 !important;
+  opacity: 1;
+      width: 20px;
+    height: 20px;
+}
+}
+.carousel-control-prev:hover, .carousel-control-prev:focus, .carousel-control-next:hover, .carousel-control-next:focus{
+  opacity: 1;
+}
+.copyright {
+    border-top: 1px solid #1c2f52;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.marquee-box {
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    position: absolute;
+    width: 100%;
+}
+
+footer{
+  .nav-item{
+    .nav-link{
+      &:hover{
+        color: #ffb03b;
+      }
+    }
+    
+  }
+}
