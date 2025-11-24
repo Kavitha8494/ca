@@ -10797,15 +10797,20 @@ img {
 }
 
 .footer-bg {
-  background-color: #111;
+  background-color: #111111;
 }
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.7) !important;
+  border-bottom: 1px solid #fff;
 }
 
 .navbar-brand img {
   width: 125px;
+}
+
+.nav-item {
+  position: relative;
 }
 
 .nav-link {
@@ -10833,6 +10838,55 @@ img {
   width: 0;
   transition: all 0.5s ease-in-out;
   background: transparent;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 10px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fa;
+  color: #667eea;
+  padding-left: 25px;
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 5px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  transition: transform 0.3s ease;
 }
 
 .carousel-item {
@@ -10902,6 +10956,11 @@ img {
   max-width: 800px;
   margin: auto;
 }
+@media screen and (max-width: 991px) {
+  .about-desc {
+    max-width: 100%;
+  }
+}
 
 .about-link {
   text-decoration: none;
@@ -10954,6 +11013,14 @@ img {
   text-align: left;
   margin-top: 1.5rem;
 }
+.testimonalSlider .carousel-caption h5, .testimonalSlider .carousel-caption .h5 {
+  font-size: 1.5rem;
+  color: #000000;
+}
+.testimonalSlider .carousel-caption p {
+  font-size: 1rem;
+  color: #333;
+}
 .testimonalSlider .carousel-control-prev {
   right: 25px;
   left: auto;
@@ -10991,8 +11058,12 @@ img {
   opacity: 1;
 }
 
+.service-bg, .team-bg {
+  background-color: #f6f6f6;
+}
+
 .copyright {
-  border-top: 1px solid #1c2f52;
+  border-top: 1px solid #393939;
   padding: 15px 0;
   text-align: center;
   margin-top: 15px;
@@ -11010,5 +11081,97 @@ img {
 }
 
 footer .nav-item .nav-link:hover {
-  color: #ffb03b;
+  color: #0d6efd !important;
+}
+footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #333;
+  color: #eee;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+footer .social-links a .fa {
+  margin-right: 0px;
+}
+footer .social-links a:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+
+.copyright {
+  text-align: center;
+  padding: 10px 0;
+  line-height: 20px;
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  background-color: #000000;
+}
+
+.banner-section {
+  position: relative;
+}
+.banner-section .img-bnr {
+  height: 450px;
+  position: relative;
+}
+.banner-section .img-bnr img {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  background: #09090a;
+}
+.banner-section .title {
+  position: absolute;
+  color: #282828;
+  top: 150px;
+  z-index: 9;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.are-container .are-we-bnr {
+  height: 350px;
+}
+
+.careers-page {
+  padding: 8rem 0;
+}
+.careers-page .careers-form label {
+  font-weight: 600;
+  color: #000;
+}
+.careers-page .careers-form label span {
+  color: red;
+}
+
+.upload-btn input::-webkit-file-upload-button {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.contact-us-section {
+  padding: 8rem 0;
 }/*# sourceMappingURL=main.css.map */
