@@ -68,6 +68,10 @@ app.get("/", (req, res) => {
   res.render("index", { title: "My Home Page" });
 });
 
+app.get("/contact-us", (req, res) => {
+  res.render("contact-us", { title: "Contact Us" });
+});
+
 // Admin routes
 const adminRoutes = require('./routes/admin');
 app.use('/admin', adminRoutes);

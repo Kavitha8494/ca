@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1"
+      name="viewport"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Chartered Accountant - Contact Us</title>
+  </head>
+
+  <body>
+    <main>
+      <!-- Nav bar -->
+      <%- include("./components/header.ejs") %>
+
+      <div class="contact-us-section">
+        <div class="container">
+          <h5 class="fs-3 text-left text-black mb-4">Contact Us</h5>
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8741.914515537563!2d77.21063338157262!3d28.60605462739082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1763702668288!5m2!1sen!2sin"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="bx-rht-cont">
+                <h2>
+                  <span>Chartered Accountants<br /><br /></span>
+                </h2>
+                <p>
+                  <i class="fa-solid fa-location-dot" style="color: #0d6efd"></i
+                  >304, 3rd floor, Lok Center, Above ICICI Bank, Marol Maroshi
+                  Road Andheri East, Mumbai-400 059
+                </p>
+
+                <p>
+                  <i class="fa fa-phone" style="color: #0d6efd"></i
+                  ><b> +91 - 9892559106</b>
+                </p>
+                <p>
+                  <i class="fa fa-envelope" style="color: #0d6efd"></i
+                  ><b>
+                    <a href="mailto:contact@vsmllp.com" target=""
+                      >contact@ca.com</a
+                    ></b
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <%- include("./components/footer.ejs") %>
+    </main>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
+
