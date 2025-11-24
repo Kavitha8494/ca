@@ -68,8 +68,16 @@ app.get("/", (req, res) => {
   res.render("index", { title: "My Home Page" });
 });
 
+app.get("/careers", (req, res) => {
+  res.render("careers", { title: "Careers" });
+});
+
 app.get("/contact-us", (req, res) => {
   res.render("contact-us", { title: "Contact Us" });
+});
+
+app.get("/about-us", (req, res) => {
+  res.render("about-us", { title: "About Us" });
 });
 
 // Admin routes

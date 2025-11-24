@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1"
+      name="viewport"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Chartered Accountant - Careers</title>
+  </head>
+
+  <body>
+    <main>
+      <%- include("./components/header.ejs") %>
+
+      <!-- careers-form -->
+      <div class="container careers-page">
+        <div class="card p-4">
+          <div class="text-center">
+            <h5 class="fs-3 text-primary mb-4">Apply here</h5>
+            <p class="mb-4">
+              We nurture and cultivate a sense of pride in the work and create
+              team leaders. Your growth chart will be governed by well-defined
+              transparent policies of the firm. Apply via the form given below
+              and meet us for face to face interview.
+            </p>
+          </div>
+          <form class="row g-3 careers-form">
+            <div class="col-md-6 col-12">
+              <label for="firstName" class="form-label"
+                >First Name <span>*</span></label
+              >
+              <input type="text" class="form-control" id="firstName" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="lastName" class="form-label"
+                >Last Name <span>*</span></label
+              >
+              <input type="text" class="form-control" id="lastName" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputEmail" class="form-label"
+                >Email <span>*</span></label
+              >
+              <input type="email" class="form-control" id="inputEmail" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputMobile" class="form-label"
+                >Mobile No <span>*</span></label
+              >
+              <input type="number" class="form-control" id="inputMobile" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputAddress" class="form-label"
+                >Address <span>*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="1234 Main St"
+              />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputCity" class="form-label"
+                >City <span>*</span></label
+              >
+              <input type="text" class="form-control" id="inputCity" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputGender" class="form-label"
+                >Gender <span>*</span></label
+              >
+              <select id="inputGender" class="form-select">
+                <option selected>Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputZip" class="form-label"
+                >Zip <span>*</span></label
+              >
+              <input type="text" class="form-control" id="inputZip" />
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="upload-btn">
+                <label for="inputResume" class="form-label"
+                  >Upload Resume <span>*</span> (Max size 1 mb)</label
+                >
+                <input
+                  id="inputResume"
+                  class="form-control"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                />
+              </div>
+            </div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center mt-5"
+            >
+              <button type="submit" class="btn btn-primary fs-5">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <%- include("./components/footer.ejs") %>
+    </main>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
+
