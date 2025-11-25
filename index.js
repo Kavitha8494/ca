@@ -79,6 +79,9 @@ app.get("/contact-us", (req, res) => {
 app.get("/about-us", (req, res) => {
   res.render("about-us", { title: "About Us" });
 });
+app.get("/news", (req, res) => {
+  res.render("news", { title: "News" });
+});
 
 // Admin routes
 const adminRoutes = require('./routes/admin');

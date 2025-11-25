@@ -1,0 +1,367 @@
+.label
+{
+	font-family:Arial;
+	font-size:8pt;
+	font-weight:bold;
+	width:auto;
+	text-decoration:none;	
+}
+.td
+{
+	font-family:Arial;
+	font-size:8pt;
+	font-weight:bold;
+	color: #084563;	
+	text-decoration:none;	
+}
+.MenuHeaderRight
+{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 8pt; 
+	COLOR: #004b68;
+	FONT-FAMILY: Arial; 
+	TEXT-DECORATION: none;
+}
+.textfield
+{
+	border-right: #a2c5ef 1px solid;
+	border-top: #a2c5ef 1px solid;
+	border-left: #a2c5ef 1px solid;
+	width: 175px;
+	border-bottom: #a2c5ef 1px solid;
+	height: 14px;
+	background-color: #e0f0ff;
+}
+
+.headerNew
+{
+	font-family:Arial;
+	font-size:15pt;
+	font-weight:bold;
+	width:auto;
+	text-decoration:none;
+	color: #084563;
+}
+.ddl
+{
+	font-family:Arial;
+	font-size:8pt;
+	border-right: #a2c5ef 1px solid;
+	border-top: #a2c5ef 1px solid;
+	border-left: #a2c5ef 1px solid;
+	width: 181px;
+	border-bottom: #a2c5ef 1px solid;
+	height: 14px;
+	background-color: #e0f0ff;
+}
+
+.Button
+{
+	color:Black;
+	font-weight: bold;
+	font-size: 8pt;
+	font-family: Arial;
+	text-decoration: none;
+	height: 22px;
+	
+/*	background-image: url(../Image/bg-button.gif);*/
+}
+
+
+
+.subHeaderNew
+{
+	font-family:Arial;
+	font-size:12pt;
+	font-weight:bold;
+	width:auto;
+	text-decoration:none;
+	color: #084563;
+	}
+	
+	.staticbodybgcolor
+{	
+	background-color:#084563;
+}
+
+.div
+{
+	background-color:#f6f6f6;
+	}
+
+
+
+
+/************************************************************************************/
+/************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+.txtUpper
+{
+	text-transform :uppercase; 
+	text-align: left;
+}
+.txtUpperReadOnly
+{
+	text-transform :uppercase; 
+	text-align: left;
+	background-color:#F5F5F5;
+	
+}
+
+.txtLower
+{
+	text-transform :lowercase;  
+	text-align: left;
+}
+.txtLowerReadOnly
+{
+	text-transform :lowercase;  
+	text-align: left;
+	background-color:#F5F5F5;
+}
+.txtCapitalize
+{
+	text-transform: capitalize;
+	text-align: left;
+}
+.txtCapitalizereadOnly
+{
+	text-transform: capitalize;
+	text-align: left;
+	background-color:#F5F5F5;
+}
+.txtNumber
+{
+	text-align:right; 
+	padding-right :2px;
+}
+.txtNumberReadOnly
+{
+	text-align:right; 
+	padding-right :2px;
+	background-color:#F5F5F5;
+}
+.gridHeader
+{
+	font-size: 8pt;
+	font-weight: 800;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	background-color: #bc8f8f;
+}
+
+.GridItem
+{
+	font-size: 7pt;
+	font-weight: 200;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: black;
+	text-align:center;
+	background-color:#FFFFE8;
+	
+}
+.AlternatingItem
+{
+	font-size: 7pt;
+	font-weight: 200;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: black;
+	text-align: center;
+	background-color: #d5eae0;
+}
+
+
+
+.PageHeader
+{
+	font-size: 11pt;
+	font-weight: 800;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	height: 20px;
+	background-color:#778899;
+}
+	
+
+.SubPageHeader
+{
+	font-size: 8pt;
+	font-weight: 800;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000033;
+	font-weight: bold;
+	background-color: #F3FBFE;
+}
+
+
+
+.Footer
+{
+	font-size: 8pt;
+	font-weight: 200;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: black;
+	font-weight: bold;
+}
+
+.Hyperlink
+{
+	font-size: 8.0pt;
+	font-weight: 200;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #330066;
+}
+
+.FEHead /*row1*/
+{
+	font-weight: bold;
+	font: smallcaption;
+}
+
+
+.FEvalue
+{
+	font-size: 8.0pt;
+	font-weight: 200;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.FEvalueCapitalize
+{
+	font-size: 8.0pt;
+	font-weight: 200;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	text-align: left;
+}
+
+.RightMesgTxt
+{
+	font-size: 8.0pt;
+	font-weight: 800;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.ErrorMsg
+{
+	font-size: 8pt;
+	font-weight: 800;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #ff6633;
+}
+
+
+
+.tableBG
+{
+	border-top: #004b68 thin solid;
+	border-left: #004b68 thin solid;
+	border-bottom: #004b68 thin solid;
+
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-bottom: 1px;
+	margin: 1px;
+	padding-top: 1px;
+	border-right-style: solid;
+}
+
+.LabelResult
+{
+	font-size:9pt;
+	font-family:Verdana;
+	color:black;
+	background-color:Yellow;
+	text-align:center;
+}
+.iqcontentmenu
+{
+	/*background-image: url(../Image/tile1.gif);*/
+	font-weight: bold;
+	font-size: 8pt;
+	font-family: Arial;
+	text-decoration: none;
+	background-color: #80c37d;
+}
+
+.StaticHover
+{
+	font: bold 12px Arial;
+	width: 100%; /*leave this value as is in most cases*/
+	margin-left: 0px;
+	font-weight: bold;
+	font-size: 8pt;
+	font-family: Arial;
+	text-decoration: none;
+	color: black;
+	background-image: url(../Image/Mh1.JPG);
+	
+}
+
+.DynamicMenu
+{	font: bold 12px Arial;
+	width: 100%; /*leave this value as is in most cases*/
+	margin-left: 0px;
+	background-image: url(../Image/menu_bg.gif);	
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt;  FONT-FAMILY: Arial; TEXT-DECORATION: none;
+	background-image: url(../Image/Mh1.JPG);
+}
+
+.DynamicMenuTextAlign
+{
+	text-align:left;
+}
+
+.marqueeheader
+{
+	font: bold 12px Arial;
+	width: 100%; /*leave this value as is in most cases*/
+	margin-left: 0px;
+	font-weight: bold;
+	font-size: 8pt;
+	font-family: Arial;
+	text-decoration: none;
+	color: white;	
+	background-image: url(../Image/Mh1.JPG);
+}
+
+.ContentText
+{
+	font-size: 8pt;
+	color: #004b68;
+	font-family: verdana;
+	text-decoration: none;
+}
+
+
+
+
+.logintextfield {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 110px; HEIGHT: 15px; BACKGROUND-COLOR: #fff4cd; BORDER-RIGHT-WIDTH: 0px
+}
+
+.bodyBackground
+{
+	background-image: url(../Image/tile1.gif);
+	/*background-color: #e0f0ff;*/
+}
+
+.BoederFieldset
+{
+	border-style:ridge;
+	
+}
