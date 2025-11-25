@@ -307,7 +307,7 @@ app.post('/api/contact', async (req, res) => {
     }
 
     await db.execute(
-      `INSERT INTO contact_submissions (full_name, email, phone, message) VALUES (?, ?, ?, ?)`,
+      `INSERT INTO contact_submissions (FULL_NAME, EMAIL, PHONE, MESSAGE) VALUES (?, ?, ?, ?)`,
       [sanitized.fullName, sanitized.email, sanitized.phone, sanitized.message]
     );
 
