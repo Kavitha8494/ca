@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1"
+      name="viewport"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Chartered Accountant - Contact Us</title>
+  </head>
+
+  <body>
+    <main>
+      <!-- Nav bar -->
+      <%- include("./components/header.ejs") %>
+
+      <div class="contact-us-section">
+        <div class="container">
+          <h5 class="fs-3 text-left text-black mb-4">DISCLAIMER :-	</h5>
+          <div class="row">
+            <p>
+              Your access to this website constitutes your agreement to be bound by all terms and conditions listed herein below. If you do not agree to this, you may not access or otherwise use the website.	 
+ 	 	 </p>
+     <p>
+ 	The material displayed on this website may be downloaded for non-commercial, personal use only. Distribution, modification, transmission, use  or reuse of the content and various facilities available on this website without written permission is not permissible.	 
+ 	 	 </p>
+     <p>
+ 	The firm reserves the right, for any reason, in its sole discretion, to terminate, change or suspend any aspect of this website, including, but not limited to, content or features.	 
+ 	 </p>
+     <p>	 
+ 	All reasonable efforts shall be made to ensure that the information contained on this website is updated, accurate and complete. However,  no representations or warranties are made (express or implied) as to the reliability, accuracy or completeness of such information.	 
+ 	 	</p>
+     <p> 
+ 	The site provides links to websites or resources operated by others over which we do not have any control. We do not undertake any responsibility for the availability of such external resources. We shall not be liable for any content, advertising, products, services or other materials on or available from such sites or resources. The inclusion of hyperlinks to such sites does not imply any endorsement of the material on such websites or any association with their operators. We. shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content or service available on or through any such site or resource. The site, including all content, functions, and information made available on or accessed through the site, is provided on an "as is  available" basis without representations or warranties of any kind whatsoever, express or implied, including without limitation, non-infringement, merchantability or fitness for a particular purpose. The firm does not warrant that the site or the functions, features or content contained therein will be timely, secure, uninterrupted or error free, or that defects will be corrected. No advice or information, whether oral or written, obtained by you from us or through this website shall create any warranty not expressly made herein.	 
+ 	 	 </p>
+     <p>
+ 	In no event shall the firm be liable for any special, incidental or consequential damages that are directly or indirectly related to the use of, or the inability to use this website or the content, materials and functions related thereto, including without limitation, loss of revenue or anticipated profits or lost business or lost sales.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <%- include("./components/footer.ejs") %>
+    </main>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
+

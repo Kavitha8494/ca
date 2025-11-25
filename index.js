@@ -82,6 +82,9 @@ app.get("/about-us", (req, res) => {
 app.get("/news", (req, res) => {
   res.render("news", { title: "News" });
 });
+app.get("/disclaimer", (req, res) => {
+  res.render("disclaimer", { title: "Disclaimer" });
+});
 
 // Admin routes
 const adminRoutes = require('./routes/admin');
