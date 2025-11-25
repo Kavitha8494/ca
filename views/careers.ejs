@@ -43,82 +43,217 @@
               and meet us for face to face interview.
             </p>
           </div>
-          <form class="row g-3 careers-form">
+          <form
+            id="careersForm"
+            class="row g-3 careers-form"
+            novalidate
+            enctype="multipart/form-data"
+          >
             <div class="col-md-6 col-12">
               <label for="firstName" class="form-label"
                 >First Name <span>*</span></label
               >
-              <input type="text" class="form-control" id="firstName" />
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                maxlength="60"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="firstName"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="lastName" class="form-label"
                 >Last Name <span>*</span></label
               >
-              <input type="text" class="form-control" id="lastName" />
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                maxlength="60"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="lastName"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputEmail" class="form-label"
                 >Email <span>*</span></label
               >
-              <input type="email" class="form-control" id="inputEmail" />
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                name="email"
+                placeholder="name@example.com"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="email"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputMobile" class="form-label"
                 >Mobile No <span>*</span></label
               >
-              <input type="number" class="form-control" id="inputMobile" />
-            </div>
-            <div class="col-md-6 col-12">
-              <label for="inputAddress" class="form-label"
-                >Address <span>*</span></label
-              >
               <input
-                type="text"
+                type="tel"
                 class="form-control"
-                id="inputAddress"
-                placeholder="1234 Main St"
+                id="inputMobile"
+                name="mobileNumber"
+                placeholder="+91 9876543210"
+                required
               />
-            </div>
-            <div class="col-md-6 col-12">
-              <label for="inputCity" class="form-label"
-                >City <span>*</span></label
-              >
-              <input type="text" class="form-control" id="inputCity" />
+              <small class="text-danger d-none" data-career-error="mobileNumber"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputGender" class="form-label"
                 >Gender <span>*</span></label
               >
-              <select id="inputGender" class="form-select">
-                <option selected>Gender</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Prefer not to say</option>
+              <select id="inputGender" name="gender" class="form-select" required>
+                <option value="">Select gender</option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
               </select>
+              <small class="text-danger d-none" data-career-error="gender"></small>
             </div>
             <div class="col-md-6 col-12">
-              <label for="inputZip" class="form-label"
-                >Zip <span>*</span></label
+              <label for="inputPosition" class="form-label"
+                >Position Applying For <span>*</span></label
               >
-              <input type="text" class="form-control" id="inputZip" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputPosition"
+                name="position"
+                placeholder="e.g., Senior Accountant"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="position"></small>
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputDob" class="form-label"
+                >Date of Birth <span>*</span></label
+              >
+              <input
+                type="date"
+                class="form-control"
+                id="inputDob"
+                name="dob"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="dob"></small>
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputQualification" class="form-label"
+                >Highest Qualification <span>*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputQualification"
+                name="qualification"
+                placeholder="e.g., Chartered Accountant"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="qualification"></small>
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputWebsite" class="form-label">Website / Portfolio</label>
+              <input
+                type="url"
+                class="form-control"
+                id="inputWebsite"
+                name="website"
+                placeholder="https://example.com"
+              />
+              <small class="text-danger d-none" data-career-error="website"></small>
             </div>
             <div class="col-md-6 col-12">
               <div class="upload-btn">
                 <label for="inputResume" class="form-label"
-                  >Upload Resume <span>*</span> (Max size 1 mb)</label
+                  >Upload Resume <span>*</span> (Max size 1 MB)</label
                 >
                 <input
                   id="inputResume"
                   class="form-control"
                   type="file"
+                  name="resume"
                   accept=".pdf,.doc,.docx"
+                  required
                 />
               </div>
+              <small class="text-danger d-none" data-career-error="resume"></small>
+              <p class="text-muted small mt-2 mb-0">
+                Supported formats: PDF, DOC, DOCX. Maximum size 1 MB.
+              </p>
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputLastCompany" class="form-label"
+                >Last Company Name <span>*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputLastCompany"
+                name="lastCompanyName"
+                placeholder="e.g., ABC & Co."
+                required
+              />
+              <small class="text-danger d-none" data-career-error="lastCompanyName"></small>
+            </div>
+            <div class="col-md-3 col-12">
+              <label for="inputExperienceYear" class="form-label"
+                >Years of Experience <span>*</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="inputExperienceYear"
+                name="yearOfExperienceYear"
+                min="0"
+                max="50"
+                placeholder="Years"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="yearOfExperienceYear"></small>
+            </div>
+            <div class="col-md-3 col-12">
+              <label for="inputExperienceMonth" class="form-label"
+                >Months of Experience <span>*</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="inputExperienceMonth"
+                name="yearOfExperienceMonth"
+                min="0"
+                max="11"
+                placeholder="Months"
+                required
+              />
+              <small class="text-danger d-none" data-career-error="yearOfExperienceMonth"></small>
+            </div>
+            <div class="col-12">
+              <label for="inputReference" class="form-label">Reference</label>
+              <textarea
+                class="form-control"
+                id="inputReference"
+                name="reference"
+                rows="3"
+                placeholder="Provide a reference or cover note"
+              ></textarea>
+              <small class="text-danger d-none" data-career-error="reference"></small>
             </div>
             <div
               class="col-12 d-flex justify-content-center align-items-center mt-5"
             >
-              <button type="submit" class="btn btn-primary fs-5">SUBMIT</button>
+              <button
+                id="careersSubmit"
+                type="submit"
+                class="btn btn-primary fs-5"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
@@ -138,7 +273,30 @@
       });
     </script>
 
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+      <div
+        id="careersToast"
+        class="toast align-items-center text-bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div id="careersToastMessage" class="toast-body">
+            Message placeholder.
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
     <script src="/js/script.js"></script>
   </body>
 </html>
+
 

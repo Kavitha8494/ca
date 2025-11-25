@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "setup-admin": "node scripts/setup-admin.js",
-    "insert-sample-news": "node scripts/insert-sample-news.js"
+    "insert-sample-news": "node scripts/insert-sample-news.js",
+    "create-contact-table": "node scripts/create-contact-table.js"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "fs": "0.0.1-security",
     "he": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
     "mariadb": "^3.0.0",
     "md5": "^2.3.0",
     "monkeys-referrer": "^1.0.1",
