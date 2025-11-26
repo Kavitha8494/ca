@@ -272,6 +272,101 @@ const validateCareerPayload = (payload = {}) => {
   };
 };
 
+const validateQueryPayload = (payload = {}) => {
+  const errors = {};
+  const sanitized = {
+    name: (payload.name || '').trim(),
+    designation: (payload.designation || '').trim(),
+    organization: (payload.organization || '').trim(),
+    officeAddress: (payload.officeAddress || '').trim(),
+    city: (payload.city || '').trim(),
+    email: (payload.email || '').trim(),
+    telephoneNo: (payload.telephoneNo || '').trim(),
+    mobileNo: (payload.mobileNo || '').trim(),
+    otherProfessional: (payload.otherProfessional || '').trim().toUpperCase(),
+    subjectQuery: (payload.subjectQuery || '').trim(),
+    queryText: (payload.queryText || '').trim()
+  };
+
+  if (!sanitized.name) {
+    errors.name = 'Name is required';
+  } else if (sanitized.name.length < 2 || sanitized.name.length > 100) {
+    errors.name = 'Name must be between 2 and 100 characters';
+  }
+
+  if (sanitized.designation && sanitized.designation.length > 100) {
+    errors.designation = 'Designation must be under 100 characters';
+  }
+
+  if (sanitized.organization && sanitized.organization.length > 150) {
+    errors.organization = 'Organization must be under 150 characters';
+  }
+
+  if (sanitized.officeAddress && sanitized.officeAddress.length > 255) {
+    errors.officeAddress = 'Office address must be under 255 characters';
+  }
+
+  if (!sanitized.city) {
+    errors.city = 'City is required';
+  } else if (sanitized.city.length < 2 || sanitized.city.length > 100) {
+    errors.city = 'City must be between 2 and 100 characters';
+  }
+
+  if (!sanitized.email) {
+    errors.email = 'Email is required';
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(sanitized.email)) {
+      errors.email = 'Enter a valid email address';
+    }
+  }
+
+  if (sanitized.telephoneNo) {
+    const telNormalized = sanitized.telephoneNo.replace(/[^0-9+]/g, '');
+    if (!/^\+?\d+$/.test(telNormalized)) {
+      errors.telephoneNo = 'Telephone number must contain only digits and optional leading +';
+    } else if (telNormalized.length < 6 || telNormalized.length > 20) {
+      errors.telephoneNo = 'Telephone number must be between 6 and 20 digits';
+    }
+  }
+
+  if (!sanitized.mobileNo) {
+    errors.mobileNo = 'Mobile number is required';
+  } else {
+    const mobNormalized = sanitized.mobileNo.replace(/[^0-9+]/g, '');
+    if (!/^\+?\d+$/.test(mobNormalized)) {
+      errors.mobileNo = 'Mobile number must contain only digits and optional leading +';
+    } else if (mobNormalized.length < 10 || mobNormalized.length > 20) {
+      errors.mobileNo = 'Mobile number must be between 10 and 20 digits';
+    }
+  }
+
+  const allowedOtherProfessional = ['YES', 'NO'];
+  if (!sanitized.otherProfessional) {
+    errors.otherProfessional = 'Please select if you want other professional updates';
+  } else if (!allowedOtherProfessional.includes(sanitized.otherProfessional)) {
+    errors.otherProfessional = 'Invalid value for other professional updates';
+  }
+
+  if (!sanitized.subjectQuery) {
+    errors.subjectQuery = 'Subject of query is required';
+  }
+
+  if (!sanitized.queryText) {
+    errors.queryText = 'Query is required';
+  } else if (sanitized.queryText.length < 10) {
+    errors.queryText = 'Query must be at least 10 characters';
+  } else if (sanitized.queryText.length > 4000) {
+    errors.queryText = 'Query must be under 4000 characters';
+  }
+
+  return {
+    isValid: Object.keys(errors).length === 0,
+    errors,
+    sanitized
+  };
+};
+
 // Routes
 app.get("/", (req, res) => {
   res.render("index", { title: "My Home Page" });
@@ -420,6 +515,59 @@ app.post('/api/careers', (req, res) => {
       });
     }
   });
+});
+
+app.post('/api/query', async (req, res) => {
+  try {
+    const { isValid, errors, sanitized } = validateQueryPayload(req.body);
+
+    if (!isValid) {
+      return res.status(400).json({
+        success: false,
+        errors
+      });
+    }
+
+    await db.execute(
+      `INSERT INTO query (
+        NAME,
+        DESIGNATION,
+        ORGANIZATION,
+        OFFICE_ADDRESS,
+        CITY,
+        EMAIL,
+        TELEPHONE_NO,
+        MOBILE_NO,
+        OTHER_PROFESSIONAL,
+        SUBJECT_QUERY,
+        QUERY
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        sanitized.name,
+        sanitized.designation || null,
+        sanitized.organization || null,
+        sanitized.officeAddress || null,
+        sanitized.city,
+        sanitized.email,
+        sanitized.telephoneNo || null,
+        sanitized.mobileNo,
+        sanitized.otherProfessional,
+        sanitized.subjectQuery,
+        sanitized.queryText
+      ]
+    );
+
+    return res.json({
+      success: true,
+      message: 'Your query has been submitted successfully. Our team will get back to you soon.'
+    });
+  } catch (error) {
+    console.error('Failed to submit query:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Unable to submit query right now. Please try again later.'
+    });
+  }
 });
 
 // 404 handler

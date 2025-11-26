@@ -33,31 +33,57 @@
       <!-- Nav bar -->
      <%- include("./components/header.ejs") %>
 
-      <!-- careers-form -->
+      <!-- Query form -->
       <div class="container careers-page">
         <div class="card p-4">
           <div class="text-center">
             <h5 class="fs-3 text-primary mb-4">::Query Sheet::</h5>
            
           </div>
-          <form class="row g-3 careers-form">
+          <form
+            id="queryForm"
+            class="row g-3 careers-form"
+            novalidate
+          >
             <div class="col-md-6 col-12">
               <label for="inputname1" class="form-label"
                 > Name <span>*</span></label
               >
-              <input type="text" class="form-control" id="inputname1" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputname1"
+                name="name"
+                maxlength="100"
+                required
+              />
+              <small class="text-danger d-none" data-query-error="name"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputname2" class="form-label"
                 >Designation</label
               >
-              <input type="text" class="form-control" id="inputname2" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputname2"
+                name="designation"
+                maxlength="100"
+              />
+              <small class="text-danger d-none" data-query-error="designation"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputOrganization" class="form-label"
                 >Organization </label
               >
-              <input type="text" class="form-control" id="inputOrganization" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputOrganization"
+                name="organization"
+                maxlength="150"
+              />
+              <small class="text-danger d-none" data-query-error="organization"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputAddress" class="form-label"
@@ -67,46 +93,104 @@
                 type="text"
                 class="form-control"
                 id="inputAddress"
-                placeholder=""
+                name="officeAddress"
+                maxlength="255"
               />
+              <small class="text-danger d-none" data-query-error="officeAddress"></small>
             </div>
              <div class="col-md-6 col-12">
               <label for="inputCity" class="form-label"
                 >City <span>*</span></label
               >
-              <input type="text" class="form-control" id="inputCity" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                name="city"
+                maxlength="100"
+                required
+              />
+              <small class="text-danger d-none" data-query-error="city"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputEmail4" class="form-label"
                 >Email address <span>*</span></label
               >
-              <input type="email" class="form-control" id="inputEmail4" />
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                name="email"
+                maxlength="150"
+                required
+              />
+              <small class="text-danger d-none" data-query-error="email"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputtelephoneno" class="form-label"
                 >Telephone No </label
               >
-              <input type="number" class="form-control" id="inputtelephoneno" />
+              <input
+                type="tel"
+                class="form-control"
+                id="inputtelephoneno"
+                name="telephoneNo"
+                maxlength="20"
+              />
+              <small class="text-danger d-none" data-query-error="telephoneNo"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputmobno" class="form-label"
                 >Mobile No <span>*</span></label
               >
-              <input type="number" class="form-control" id="inputmobno" />
+              <input
+                type="tel"
+                class="form-control"
+                id="inputmobno"
+                name="mobileNo"
+                maxlength="20"
+                required
+              />
+              <small class="text-danger d-none" data-query-error="mobileNo"></small>
             </div>
             <div class="col-md-6 col-12">
               <label for="inputopu" class="form-label"
                 >Other professional updates <span>*</span></label
               >
-              <input type="radio" id="inputopuyes" value="yes" checked>Yes
-              <input type="radio" id="inputopuno" value="no" >Yes
+              <div class="d-flex align-items-center gap-3">
+                <div>
+                  <input
+                    type="radio"
+                    id="inputopuyes"
+                    name="otherProfessional"
+                    value="YES"
+                    checked
+                  />
+                  <label for="inputopuyes" class="mb-0">Yes</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="inputopuno"
+                    name="otherProfessional"
+                    value="NO"
+                  />
+                  <label for="inputopuno" class="mb-0">No</label>
+                </div>
+              </div>
+              <small class="text-danger d-none" data-query-error="otherProfessional"></small>
             </div>
             
             <div class="col-md-6 col-12">
               <label for="inputState" class="form-label"
                 >Subject of Query <span>*</span></label
               >
-              <select id="inputState" class="form-select">
+              <select
+                id="inputState"
+                name="subjectQuery"
+                class="form-select"
+                required
+              >
                 <option selected value="">-----Please Select-----</option>
 						<option value="Income Tax">Income Tax</option>
 						<option value="Audit">Audit</option>
@@ -122,6 +206,7 @@
 						<option value="Others">Others</option>
 
               </select>
+              <small class="text-danger d-none" data-query-error="subjectQuery"></small>
             </div>
             
             <div class="col-md-12 col-12">
@@ -129,13 +214,26 @@
                 <label for="inputZip" class="form-label"
                   >Query <span>*</span> </label
                 >
-                <textarea class="form-control" id="query" ></textarea>
+                <textarea
+                  class="form-control"
+                  id="query"
+                  name="queryText"
+                  rows="4"
+                  required
+                ></textarea>
+                <small class="text-danger d-none" data-query-error="queryText"></small>
               </div>
             </div>
             <div
               class="col-12 d-flex justify-content-center align-items-center mt-5"
             >
-              <button type="submit" class="btn btn-primary fs-5">SUBMIT</button>
+              <button
+                id="querySubmit"
+                type="submit"
+                class="btn btn-primary fs-5"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
@@ -155,6 +253,28 @@
         offset: 100,
       });
     </script>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+      <div
+        id="queryToast"
+        class="toast align-items-center text-bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div id="queryToastMessage" class="toast-body">
+            Message placeholder.
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
 
     <script src="/js/script.js"></script>
   </body>

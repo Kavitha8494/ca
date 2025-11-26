@@ -431,7 +431,222 @@ const initCareersForm = () => {
   });
 };
 
+const initQueryForm = () => {
+  const queryForm = document.getElementById('queryForm');
+  if (!queryForm) return;
+
+  const submitBtn = document.getElementById('querySubmit');
+  const showToast = createToastController('queryToast', 'queryToastMessage');
+
+  const errorElements = {
+    name: document.querySelector('[data-query-error="name"]'),
+    designation: document.querySelector('[data-query-error="designation"]'),
+    organization: document.querySelector('[data-query-error="organization"]'),
+    officeAddress: document.querySelector('[data-query-error="officeAddress"]'),
+    city: document.querySelector('[data-query-error="city"]'),
+    email: document.querySelector('[data-query-error="email"]'),
+    telephoneNo: document.querySelector('[data-query-error="telephoneNo"]'),
+    mobileNo: document.querySelector('[data-query-error="mobileNo"]'),
+    otherProfessional: document.querySelector('[data-query-error="otherProfessional"]'),
+    subjectQuery: document.querySelector('[data-query-error="subjectQuery"]'),
+    queryText: document.querySelector('[data-query-error="queryText"]')
+  };
+
+  const validators = {
+    name: (value) => {
+      if (!value) return 'Name is required';
+      if (value.length < 2) return 'Name must be at least 2 characters';
+      if (value.length > 100) return 'Name must be under 100 characters';
+      return '';
+    },
+    designation: (value) => {
+      if (!value) return '';
+      if (value.length > 100) return 'Designation must be under 100 characters';
+      return '';
+    },
+    organization: (value) => {
+      if (!value) return '';
+      if (value.length > 150) return 'Organization must be under 150 characters';
+      return '';
+    },
+    officeAddress: (value) => {
+      if (!value) return '';
+      if (value.length > 255) return 'Office address must be under 255 characters';
+      return '';
+    },
+    city: (value) => {
+      if (!value) return 'City is required';
+      if (value.length < 2) return 'City must be at least 2 characters';
+      if (value.length > 100) return 'City must be under 100 characters';
+      return '';
+    },
+    email: (value) => {
+      if (!value) return 'Email is required';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) return 'Enter a valid email address';
+      return '';
+    },
+    telephoneNo: (value) => {
+      if (!value) return '';
+      const normalized = value.replace(/[^0-9+]/g, '');
+      if (!/^\+?\d+$/.test(normalized)) return 'Only digits and an optional + are allowed';
+      if (normalized.length < 6) return 'Telephone number must be at least 6 digits';
+      if (normalized.length > 20) return 'Telephone number must be under 20 digits';
+      return '';
+    },
+    mobileNo: (value) => {
+      if (!value) return 'Mobile number is required';
+      const normalized = value.replace(/[^0-9+]/g, '');
+      if (!/^\+?\d+$/.test(normalized)) return 'Only digits and an optional + are allowed';
+      if (normalized.length < 10) return 'Mobile number must be at least 10 digits';
+      if (normalized.length > 20) return 'Mobile number must be under 20 digits';
+      return '';
+    },
+    otherProfessional: (value) => {
+      if (!value) return 'Please select Yes or No';
+      if (!['YES', 'NO'].includes(value)) return 'Invalid value selected';
+      return '';
+    },
+    subjectQuery: (value) => {
+      if (!value) return 'Subject of query is required';
+      return '';
+    },
+    queryText: (value) => {
+      if (!value) return 'Query is required';
+      if (value.length < 10) return 'Query must be at least 10 characters';
+      if (value.length > 4000) return 'Query must be under 4000 characters';
+      return '';
+    }
+  };
+
+  const showFieldError = (field, message) => {
+    const el = errorElements[field];
+    if (!el) return;
+    if (message) {
+      el.textContent = message;
+      el.classList.remove('d-none');
+    } else {
+      el.textContent = '';
+      el.classList.add('d-none');
+    }
+  };
+
+  const setSubmittingState = (isSubmitting) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = isSubmitting;
+    submitBtn.textContent = isSubmitting ? 'Submitting...' : 'Submit';
+  };
+
+  const validateForm = () => {
+    const formData = new FormData(queryForm);
+    let isValid = true;
+
+    Object.entries(validators).forEach(([field, validator]) => {
+      let value;
+      if (field === 'otherProfessional') {
+        value = formData.get('otherProfessional') || '';
+      } else {
+        value = (formData.get(field) || '').toString().trim();
+        formData.set(field, value);
+      }
+      const error = validator(value);
+      showFieldError(field, error);
+      if (error) isValid = false;
+    });
+
+    return { isValid, formData };
+  };
+
+  queryForm.addEventListener('input', (event) => {
+    const { name, value } = event.target;
+    if (!name || !validators[name]) return;
+    const error = validators[name]((value || '').toString().trim());
+    showFieldError(name, error);
+  });
+
+  queryForm.addEventListener('change', (event) => {
+    const { name } = event.target;
+    if (!name || !validators[name]) return;
+    let value;
+    if (name === 'otherProfessional') {
+      const formData = new FormData(queryForm);
+      value = formData.get('otherProfessional') || '';
+    } else {
+      value = (event.target.value || '').toString().trim();
+    }
+    const error = validators[name](value);
+    showFieldError(name, error);
+  });
+
+  queryForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const { isValid, formData } = validateForm();
+    if (!isValid) return;
+
+    const payload = {
+      name: formData.get('name'),
+      designation: formData.get('designation'),
+      organization: formData.get('organization'),
+      officeAddress: formData.get('officeAddress'),
+      city: formData.get('city'),
+      email: formData.get('email'),
+      telephoneNo: formData.get('telephoneNo'),
+      mobileNo: formData.get('mobileNo'),
+      otherProfessional: formData.get('otherProfessional'),
+      subjectQuery: formData.get('subjectQuery'),
+      queryText: formData.get('queryText')
+    };
+
+    try {
+      setSubmittingState(true);
+      const response = await fetch('/api/query', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        if (result?.errors) {
+          Object.entries(result.errors).forEach(([field, message]) => {
+            if (errorElements[field]) {
+              showFieldError(field, message);
+            }
+          });
+        }
+
+        const errorMessage = result?.message || 'Unable to submit query. Please try again.';
+        if (showToast) {
+          showToast(errorMessage, false);
+        } else {
+          alert(errorMessage);
+        }
+        return;
+      }
+
+      queryForm.reset();
+      Object.keys(errorElements).forEach((field) => showFieldError(field, ''));
+      if (showToast) {
+        showToast(result.message || 'Your query has been submitted successfully.');
+      }
+    } catch (error) {
+      console.error('Query form submission failed', error);
+      if (showToast) {
+        showToast('Network error. Please try again later.', false);
+      } else {
+        alert('Network error. Please try again later.');
+      }
+    } finally {
+      setSubmittingState(false);
+    }
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initCareersForm();
+  initQueryForm();
 });
