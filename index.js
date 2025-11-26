@@ -294,6 +294,14 @@ app.get("/news", (req, res) => {
 app.get("/disclaimer", (req, res) => {
   res.render("disclaimer", { title: "Disclaimer" });
 });
+app.get("/Services/audit-and-assurance", (req, res) => {
+  res.render("audit-and-assurance", { title: "Audit and Assurance" });
+});
+
+app.get("/query", (req, res) => {
+  res.render("query", { title: "Query" });
+});
+
 
 // Admin routes
 const adminRoutes = require('./routes/admin');

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1"
+      name="viewport"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Chartered Accountant - Contact Us</title>
+  </head>
+
+
+  <body>
+    <main>
+      <!-- Nav bar -->
+     <%- include("./components/header.ejs") %>
+
+      <!-- careers-form -->
+      <div class="container careers-page">
+        <div class="card p-4">
+          <div class="text-center">
+            <h5 class="fs-3 text-primary mb-4">::Query Sheet::</h5>
+           
+          </div>
+          <form class="row g-3 careers-form">
+            <div class="col-md-6 col-12">
+              <label for="inputname1" class="form-label"
+                > Name <span>*</span></label
+              >
+              <input type="text" class="form-control" id="inputname1" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputname2" class="form-label"
+                >Designation</label
+              >
+              <input type="text" class="form-control" id="inputname2" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputOrganization" class="form-label"
+                >Organization </label
+              >
+              <input type="text" class="form-control" id="inputOrganization" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputAddress" class="form-label"
+                >Office Address </label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder=""
+              />
+            </div>
+             <div class="col-md-6 col-12">
+              <label for="inputCity" class="form-label"
+                >City <span>*</span></label
+              >
+              <input type="text" class="form-control" id="inputCity" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputEmail4" class="form-label"
+                >Email address <span>*</span></label
+              >
+              <input type="email" class="form-control" id="inputEmail4" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputtelephoneno" class="form-label"
+                >Telephone No </label
+              >
+              <input type="number" class="form-control" id="inputtelephoneno" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputmobno" class="form-label"
+                >Mobile No <span>*</span></label
+              >
+              <input type="number" class="form-control" id="inputmobno" />
+            </div>
+            <div class="col-md-6 col-12">
+              <label for="inputopu" class="form-label"
+                >Other professional updates <span>*</span></label
+              >
+              <input type="radio" id="inputopuyes" value="yes" checked>Yes
+              <input type="radio" id="inputopuno" value="no" >Yes
+            </div>
+            
+            <div class="col-md-6 col-12">
+              <label for="inputState" class="form-label"
+                >Subject of Query <span>*</span></label
+              >
+              <select id="inputState" class="form-select">
+                <option selected value="">-----Please Select-----</option>
+						<option value="Income Tax">Income Tax</option>
+						<option value="Audit">Audit</option>
+						<option value="Service Tax">Service Tax</option>
+						<option value="Company Law">Company Law</option>
+						<option value="Excise Duty">Excise Duty</option>
+						<option value="Customs">Customs</option>
+						<option value="Wealth Tax">Wealth Tax</option>
+						<option value="Sales Tax/Value Added Tax">Sales Tax/Value Added Tax</option>
+						<option value="FEMA">FEMA</option>
+						<option value="RBI">RBI</option>
+						<option value="Labour Law">Labour Law</option>
+						<option value="Others">Others</option>
+
+              </select>
+            </div>
+            
+            <div class="col-md-12 col-12">
+              <div class="upload-btn">
+                <label for="inputZip" class="form-label"
+                  >Query <span>*</span> </label
+                >
+                <textarea class="form-control" id="query" ></textarea>
+              </div>
+            </div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center mt-5"
+            >
+              <button type="submit" class="btn btn-primary fs-5">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer -->
+       <%- include("./components/footer.ejs") %>
+    </main>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
