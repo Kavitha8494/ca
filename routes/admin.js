@@ -559,9 +559,14 @@ router.get('/blog/edit/:id', requireAuth, async (req, res) => {
             return res.redirect('/admin/blog?error=Blog not found');
         }
 
+        // Decode HTML entities in content so editor shows formatted content, not raw tags
+        const blog = blogs[0];
+        const blogContentHtml = he.decode(blog.CONTENT || '');
+
         res.render('admin/edit-blog', {
             adminUsername: req.session.adminUsername,
-            blog: blogs[0]
+            blog,
+            blogContentHtml
         });
     } catch (error) {
         console.error('Error fetching blog for edit:', error);
@@ -681,6 +686,286 @@ router.delete('/blog/:id', requireAuth, async (req, res) => {
     } catch (error) {
         console.error('Error deleting blog:', error);
         res.status(500).json({ success: false, message: 'Error deleting blog' });
+    }
+});
+
+// Careers Management Page with Pagination and Search
+router.get('/careers', requireAuth, async (req, res) => {
+    try {
+        const searchQuery = req.query.search || '';
+        const page = parseInt(req.query.page) || 1;
+        const limit = 5; // 5 items per page
+        const offset = (page - 1) * limit;
+
+        let careers, totalCount;
+        let whereClause = '';
+        let queryParams = [];
+
+        if (searchQuery) {
+            whereClause = `
+                WHERE 
+                    FIRST_NAME LIKE ? OR 
+                    LAST_NAME LIKE ? OR 
+                    EMAIL LIKE ? OR 
+                    MOBILE_NUMBER LIKE ? OR
+                    POSITION LIKE ?
+            `;
+            const like = `%${searchQuery}%`;
+            queryParams = [like, like, like, like, like];
+        }
+
+        // Get total count
+        let countSql = 'SELECT COUNT(*) as total FROM careers';
+        if (whereClause) {
+            countSql += ' ' + whereClause;
+        }
+        const [countResult] = await db.execute(countSql, queryParams);
+        totalCount = countResult[0].total;
+        const totalPages = Math.ceil(totalCount / limit);
+
+        // Get paginated careers
+        let dataSql = 'SELECT * FROM careers';
+        if (whereClause) {
+            dataSql += ' ' + whereClause;
+        }
+        dataSql += ' ORDER BY ID DESC LIMIT ? OFFSET ?';
+        const dataParams = [...queryParams, limit, offset];
+        [careers] = await db.execute(dataSql, dataParams);
+
+        res.render('admin/careers', {
+            careers: careers || [],
+            searchQuery,
+            adminUsername: req.session.adminUsername,
+            currentPage: page,
+            totalPages,
+            totalCount,
+            limit
+        });
+    } catch (error) {
+        console.error('Error fetching careers:', error);
+        res.render('admin/careers', {
+            careers: [],
+            searchQuery: '',
+            adminUsername: req.session.adminUsername,
+            currentPage: 1,
+            totalPages: 0,
+            totalCount: 0,
+            limit: 5,
+            error: 'Error loading careers data'
+        });
+    }
+});
+
+// Career Details View Page
+router.get('/careers/:id', requireAuth, async (req, res) => {
+    try {
+        const careerId = req.params.id;
+        if (!careerId) {
+            return res.redirect('/admin/careers?error=Invalid career ID');
+        }
+
+        const [rows] = await db.execute('SELECT * FROM careers WHERE ID = ?', [careerId]);
+        if (rows.length === 0) {
+            return res.redirect('/admin/careers?error=Career application not found');
+        }
+
+        const career = rows[0];
+
+        res.render('admin/career-view', {
+            adminUsername: req.session.adminUsername,
+            career
+        });
+    } catch (error) {
+        console.error('Error fetching career details:', error);
+        res.redirect('/admin/careers?error=Error loading career details');
+    }
+});
+
+// Query Management Page with Pagination and Search
+router.get('/queries', requireAuth, async (req, res) => {
+    try {
+        const searchQuery = req.query.search || '';
+        const page = parseInt(req.query.page) || 1;
+        const limit = 5; // 5 items per page
+        const offset = (page - 1) * limit;
+
+        let queries, totalCount;
+        let whereClause = '';
+        let queryParams = [];
+
+        if (searchQuery) {
+            const like = `%${searchQuery}%`;
+            whereClause = `
+                WHERE 
+                    NAME LIKE ? OR 
+                    EMAIL LIKE ? OR 
+                    MOBILE_NO LIKE ? OR
+                    SUBJECT_QUERY LIKE ?
+            `;
+            queryParams = [like, like, like, like];
+        }
+
+        // Get total count
+        let countSql = 'SELECT COUNT(*) as total FROM query';
+        if (whereClause) {
+            countSql += ' ' + whereClause;
+        }
+        const [countResult] = await db.execute(countSql, queryParams);
+        totalCount = countResult[0].total;
+        const totalPages = Math.ceil(totalCount / limit);
+
+        // Get paginated queries
+        let dataSql = 'SELECT * FROM query';
+        if (whereClause) {
+            dataSql += ' ' + whereClause;
+        }
+        dataSql += ' ORDER BY ID DESC LIMIT ? OFFSET ?';
+        const dataParams = [...queryParams, limit, offset];
+        [queries] = await db.execute(dataSql, dataParams);
+
+        res.render('admin/queries', {
+            queries: queries || [],
+            searchQuery,
+            adminUsername: req.session.adminUsername,
+            currentPage: page,
+            totalPages,
+            totalCount,
+            limit
+        });
+    } catch (error) {
+        console.error('Error fetching queries:', error);
+        res.render('admin/queries', {
+            queries: [],
+            searchQuery: '',
+            adminUsername: req.session.adminUsername,
+            currentPage: 1,
+            totalPages: 0,
+            totalCount: 0,
+            limit: 5,
+            error: 'Error loading queries data'
+        });
+    }
+});
+
+// Query Details View Page
+router.get('/queries/:id', requireAuth, async (req, res) => {
+    try {
+        const queryId = req.params.id;
+        if (!queryId) {
+            return res.redirect('/admin/queries?error=Invalid query ID');
+        }
+
+        const [rows] = await db.execute('SELECT * FROM query WHERE ID = ?', [queryId]);
+        if (rows.length === 0) {
+            return res.redirect('/admin/queries?error=Query not found');
+        }
+
+        const queryRow = rows[0];
+
+        res.render('admin/query-view', {
+            adminUsername: req.session.adminUsername,
+            queryRow
+        });
+    } catch (error) {
+        console.error('Error fetching query details:', error);
+        res.redirect('/admin/queries?error=Error loading query details');
+    }
+});
+
+// Contact Management Page with Pagination and Search
+router.get('/contacts', requireAuth, async (req, res) => {
+    try {
+        const searchQuery = req.query.search || '';
+        const page = parseInt(req.query.page) || 1;
+        const limit = 5; // 5 items per page
+        const offset = (page - 1) * limit;
+
+        let contacts, totalCount;
+        let whereClause = '';
+        let queryParams = [];
+
+        if (searchQuery) {
+            const like = `%${searchQuery}%`;
+            whereClause = `
+                WHERE 
+                    FULL_NAME LIKE ? OR 
+                    EMAIL LIKE ? OR 
+                    PHONE LIKE ? OR
+                    STATUS LIKE ?
+            `;
+            queryParams = [like, like, like, like];
+        }
+
+        // Get total count
+        let countSql = 'SELECT COUNT(*) as total FROM contact_submissions';
+        if (whereClause) {
+            countSql += ' ' + whereClause;
+        }
+        const [countResult] = await db.execute(countSql, queryParams);
+        totalCount = countResult[0].total;
+        const totalPages = Math.ceil(totalCount / limit);
+
+        // Get paginated contacts
+        let dataSql = 'SELECT * FROM contact_submissions';
+        if (whereClause) {
+            dataSql += ' ' + whereClause;
+        }
+        dataSql += ' ORDER BY CREATED_AT DESC LIMIT ? OFFSET ?';
+        const dataParams = [...queryParams, limit, offset];
+        [contacts] = await db.execute(dataSql, dataParams);
+
+        res.render('admin/contacts', {
+            contacts: contacts || [],
+            searchQuery,
+            adminUsername: req.session.adminUsername,
+            currentPage: page,
+            totalPages,
+            totalCount,
+            limit
+        });
+    } catch (error) {
+        console.error('Error fetching contacts:', error);
+        res.render('admin/contacts', {
+            contacts: [],
+            searchQuery: '',
+            adminUsername: req.session.adminUsername,
+            currentPage: 1,
+            totalPages: 0,
+            totalCount: 0,
+            limit: 5,
+            error: 'Error loading contact submissions data'
+        });
+    }
+});
+
+// Contact Details View Page
+router.get('/contacts/:id', requireAuth, async (req, res) => {
+    try {
+        const contactId = req.params.id;
+        if (!contactId) {
+            return res.redirect('/admin/contacts?error=Invalid contact ID');
+        }
+
+        const [rows] = await db.execute('SELECT * FROM contact_submissions WHERE ID = ?', [contactId]);
+        if (rows.length === 0) {
+            return res.redirect('/admin/contacts?error=Contact submission not found');
+        }
+
+        const contact = rows[0];
+
+        // If the contact is still NEW, mark it as REVIEWED when viewed
+        if (contact.STATUS === 'NEW') {
+            await db.execute('UPDATE contact_submissions SET STATUS = ? WHERE ID = ?', ['REVIEWED', contactId]);
+            contact.STATUS = 'REVIEWED';
+        }
+
+        res.render('admin/contact-view', {
+            adminUsername: req.session.adminUsername,
+            contact
+        });
+    } catch (error) {
+        console.error('Error fetching contact details:', error);
+        res.redirect('/admin/contacts?error=Error loading contact details');
     }
 });
 

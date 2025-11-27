@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Details - Admin</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar-header {
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .sidebar-header p {
+            margin: 0.25rem 0 0 0;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        .sidebar-menu li {
+            margin: 0.25rem 0;
+        }
+        .sidebar-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: rgba(255,255,255,0.1);
+            border-left-color: #3498db;
+        }
+        .sidebar-menu i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+        .sidebar-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-footer a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s;
+        }
+        .sidebar-footer a:hover {
+            opacity: 0.8;
+        }
+        .main-content {
+            margin-left: 250px;
+            flex: 1;
+            padding: 2rem;
+        }
+        .content-header {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .content-header h1 {
+            margin: 0;
+            font-size: 1.75rem;
+            color: #2c3e50;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+        .detail-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .detail-value {
+            color: #34495e;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+            .main-content {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <%- include('./components/sidebar', { adminUsername, activePage: 'queries' }) %>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Query Details</h1>
+                <a href="/admin/queries" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Queries
+                </a>
+            </div>
+
+            <div class="card p-4 mb-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="detail-label">Name</div>
+                        <div class="detail-value"><%= queryRow.NAME %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Designation</div>
+                        <div class="detail-value"><%= queryRow.DESIGNATION || '-' %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Organization</div>
+                        <div class="detail-value"><%= queryRow.ORGANIZATION || '-' %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Office Address</div>
+                        <div class="detail-value"><%= queryRow.OFFICE_ADDRESS || '-' %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">City</div>
+                        <div class="detail-value"><%= queryRow.CITY %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Email</div>
+                        <div class="detail-value">
+                            <a href="mailto:<%= queryRow.EMAIL %>"><%= queryRow.EMAIL %></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Telephone No</div>
+                        <div class="detail-value"><%= queryRow.TELEPHONE_NO || '-' %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Mobile No</div>
+                        <div class="detail-value">
+                            <a href="tel:<%= queryRow.MOBILE_NO %>"><%= queryRow.MOBILE_NO %></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Other Professional Updates</div>
+                        <div class="detail-value"><%= queryRow.OTHER_PROFESSIONAL %></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Subject of Query</div>
+                        <div class="detail-value"><%= queryRow.SUBJECT_QUERY %></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="detail-label">Query</div>
+                        <div class="detail-value">
+                            <pre style="white-space: pre-wrap; word-break: break-word; margin: 0;"><%= queryRow.QUERY %></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

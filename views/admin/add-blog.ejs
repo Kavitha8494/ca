@@ -266,7 +266,9 @@
                         <label for="content">
                             Content <span class="required">*</span>
                         </label>
+                        <!-- Quill editor container -->
                         <div id="editor"></div>
+                        <!-- Hidden field that actually gets submitted -->
                         <input type="hidden" id="content" name="content" required>
                         <div class="invalid-feedback" id="contentError"></div>
                     </div>
@@ -394,14 +396,17 @@
             }
 
             // Validate Content (from Quill editor)
-            const contentText = quill.root.innerHTML;
+            const contentHtml = quill.root.innerHTML;
             const contentPlainText = quill.getText().trim();
             if (!contentPlainText || contentPlainText.length < 10) {
                 document.getElementById('contentError').textContent = 'Content is required and must be at least 10 characters';
+                contentInput.classList.add('is-invalid');
                 isValid = false;
             } else {
-                // Set hidden input value
-                contentInput.value = contentText;
+                contentInput.classList.remove('is-invalid');
+                document.getElementById('contentError').textContent = '';
+                // Sync hidden input with editor HTML
+                contentInput.value = contentHtml;
             }
 
             // Validate Date
@@ -424,9 +429,11 @@
             }
         });
 
+        // Quill change validation
         quill.on('text-change', function() {
             const contentPlainText = quill.getText().trim();
             if (contentPlainText && contentPlainText.length >= 10) {
+                contentInput.classList.remove('is-invalid');
                 document.getElementById('contentError').textContent = '';
             }
         });
@@ -441,20 +448,10 @@
         // Form submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get content from Quill editor
-            const contentText = quill.root.innerHTML;
-            const contentPlainText = quill.getText().trim();
-            
-            if (!contentPlainText || contentPlainText.length < 10) {
-                document.getElementById('contentError').textContent = 'Content is required and must be at least 10 characters';
-                showToast('Please enter content (at least 10 characters)');
-                return;
-            }
-            
-            // Set hidden input value
-            contentInput.value = contentText;
-            
+
+            // Sync editor HTML into hidden input before validation
+            contentInput.value = quill.root.innerHTML || '';
+
             if (!validateForm()) {
                 showToast('Please fix the errors in the form');
                 return;
