@@ -945,12 +945,8 @@ Proactiveness ,Innovativeness
         const marqueeBox = document.getElementById('dueDateReminderMarquee');
         let currentMonth = 'all';
 
-        // Function to remove HTML tags and get plain text
-        function stripHtml(html) {
-          const tmp = document.createElement('DIV');
-          tmp.innerHTML = html;
-          return tmp.textContent || tmp.innerText || '';
-        }
+        // NOTE: For BLOGS we will render stored HTML as-is (including <a> tags),
+        // so we don't need to strip HTML here.
 
         // Function to highlight selected month
         function highlightMonth(selectedMonth) {
@@ -982,24 +978,13 @@ Proactiveness ,Innovativeness
                 // Content element
                 const contentP = document.createElement('p');
                 contentP.className = 'news fs-6 lh-base';
-                // Strip HTML tags for display
-                const plainContent = stripHtml(item.content);
-                contentP.textContent = plainContent;
+                // For BLOGS, render HTML content directly so that any <a> tags
+                // inside the content are visible and clickable in the widget box.
+                // This assumes the HTML stored for blogs is trusted.
+                contentP.innerHTML = item.content || '';
 
-                // If there's a link URL, wrap content in a link
-                if (item.linkUrl) {
-                  const linkWrapper = document.createElement('a');
-                  linkWrapper.href = item.linkUrl;
-                  linkWrapper.target = '_blank';
-                  linkWrapper.style.textDecoration = 'none';
-                  linkWrapper.style.color = 'inherit';
-                  linkWrapper.appendChild(contentP);
-                  contentContainer.appendChild(dateDiv);
-                  contentContainer.appendChild(linkWrapper);
-                } else {
-                  contentContainer.appendChild(dateDiv);
-                  contentContainer.appendChild(contentP);
-                }
+                contentContainer.appendChild(dateDiv);
+                contentContainer.appendChild(contentP);
               });
 
               // Restart marquee animation
@@ -1159,13 +1144,6 @@ Proactiveness ,Innovativeness
         const contentContainer = document.getElementById('blogsContent');
         const marqueeBox = document.getElementById('blogsMarquee');
 
-        // Function to remove HTML tags and get plain text
-        function stripHtml(html) {
-          const tmp = document.createElement('DIV');
-          tmp.innerHTML = html;
-          return tmp.textContent || tmp.innerText || '';
-        }
-
         // Function to restart marquee animation
         function restartMarquee() {
           const content = contentContainer;
@@ -1203,27 +1181,16 @@ Proactiveness ,Innovativeness
                 dateDiv.className = 'news mb-3 fw-semibold';
                 dateDiv.textContent = item.date;
 
-                // Content element
-                const contentP = document.createElement('p');
-                contentP.className = 'news fs-6 lh-base';
-                // Strip HTML tags for display
-                const plainContent = stripHtml(item.content);
-                contentP.textContent = plainContent;
+                // Content element wrapper (use div so any <p> inside content is valid)
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'news fs-6 lh-base';
+                // For BLOGS, render HTML content directly so any <a> tags in the
+                // content are visible and clickable in the widget box.
+                // Assumes the BLOGS HTML stored in DB is trusted.
+                contentDiv.innerHTML = item.content || '';
 
-                // If there's a link URL, wrap content in a link
-                if (item.linkUrl) {
-                  const linkWrapper = document.createElement('a');
-                  linkWrapper.href = item.linkUrl;
-                  linkWrapper.target = '_blank';
-                  linkWrapper.style.textDecoration = 'none';
-                  linkWrapper.style.color = 'inherit';
-                  linkWrapper.appendChild(contentP);
-                  contentContainer.appendChild(dateDiv);
-                  contentContainer.appendChild(linkWrapper);
-                } else {
-                  contentContainer.appendChild(dateDiv);
-                  contentContainer.appendChild(contentP);
-                }
+                contentContainer.appendChild(dateDiv);
+                contentContainer.appendChild(contentDiv);
               });
 
               // Restart marquee animation
