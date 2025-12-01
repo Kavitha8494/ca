@@ -552,8 +552,11 @@ router.get('/blog/edit/:id', requireAuth, async (req, res) => {
             return res.redirect('/admin/blog?error=Invalid blog ID');
         }
 
-        // Get blog from database
-        const [blogs] = await db.execute('SELECT * FROM news_due_date_blog WHERE ID = ?', [blogId]);
+        // Get blog from database with DATE formatted as string to avoid timezone issues
+        const [blogs] = await db.execute(
+            'SELECT ID, TYPE, CONTENT, LINK_URL, DATE_FORMAT(DATE, "%Y-%m-%d") as DATE, TIMESTAMP FROM news_due_date_blog WHERE ID = ?', 
+            [blogId]
+        );
 
         if (blogs.length === 0) {
             return res.redirect('/admin/blog?error=Blog not found');
@@ -563,10 +566,15 @@ router.get('/blog/edit/:id', requireAuth, async (req, res) => {
         const blog = blogs[0];
         const blogContentHtml = he.decode(blog.CONTENT || '');
 
+        // Format date for input field - DATE is already formatted as YYYY-MM-DD string from SQL
+        // This avoids timezone conversion issues
+        const blogFormattedDate = blog.DATE || '';
+
         res.render('admin/edit-blog', {
             adminUsername: req.session.adminUsername,
             blog,
-            blogContentHtml
+            blogContentHtml,
+            blogFormattedDate
         });
     } catch (error) {
         console.error('Error fetching blog for edit:', error);

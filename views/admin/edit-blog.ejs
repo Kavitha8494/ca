@@ -298,7 +298,7 @@
                             name="date" 
                             class="form-control" 
                             required
-                            value="<%= blog.DATE ? new Date(blog.DATE).toISOString().split('T')[0] : '' %>"
+                            value="<%= blogFormattedDate || '' %>"
                         >
                         <div class="invalid-feedback" id="dateError"></div>
                     </div>
