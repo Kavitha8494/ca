@@ -24,6 +24,10 @@
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
     <script src="/js/bootstrap.bundle.min.js"></script>
     <title>Chartered Accountant - Home</title>
   </head>
@@ -253,31 +257,27 @@ Proactiveness ,Innovativeness
             </p>
 
             <div class="my-5 container-fluid">
-              <div class="row">
-                <!-- Service Cards -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
-                  <div class="card shadow-sm p-4 mb-4">
+              <div class="owl-carousel owl-theme services-carousel" id="servicesCarousel">
+                <!-- Service Card 1 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
-                      <!-- <img
-                        src="https://i.ibb.co/xq0zmvFj/smileys.png"
-                        class="card-img-top w-100 h-100 cover rounded"
-                      /> -->
                       <i class="fa-solid fa-magnifying-glass-chart text-primary fs-1"></i>
-
                     </div>
                     <div class="card-body text-center">
                       <h5 class="card-title fw-semibold fs-5 mb-3">
                         Audit and Assurance
                       </h5>
                       <p class="card-text fw-normal">
-                        Audit checks financial accuracy.Assurance increases users’ confidence.
+                        Audit checks financial accuracy.Assurance increases users' confidence.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 2 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-user-check text-primary fs-1"></i>
                     </div>
@@ -292,8 +292,9 @@ Proactiveness ,Innovativeness
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 3 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-file-invoice-dollar text-primary fs-1"></i>
                     </div>
@@ -308,9 +309,9 @@ Proactiveness ,Innovativeness
                   </div>
                 </div>
 
-                <!-- Row 2 same pattern -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 4 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-cart-shopping text-primary fs-1"></i>
                     </div>
@@ -323,8 +324,9 @@ Proactiveness ,Innovativeness
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 5 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-globe text-primary fs-1"></i>
                     </div>
@@ -337,8 +339,9 @@ Proactiveness ,Innovativeness
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 6 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-scale-balanced text-primary fs-1"></i>
                     </div>
@@ -782,6 +785,98 @@ Proactiveness ,Innovativeness
       });
     </script>
 
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Initialize Owl Carousel for Services -->
+    <script>
+      $(document).ready(function(){
+        var servicesCarousel = $("#servicesCarousel").owlCarousel({
+          loop: true,
+          margin: 30,
+          nav: true,
+          dots: false,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 2
+            },
+            1000: {
+              items: 3
+            }
+          },
+          navText: [
+            '<i class="fa-solid fa-chevron-left"></i>',
+            '<i class="fa-solid fa-chevron-right"></i>'
+          ],
+          onInitialized: function() {
+            setTimeout(equalizeCardHeights, 100);
+          },
+          onTranslated: function() {
+            setTimeout(equalizeCardHeights, 100);
+          }
+        });
+
+        // Function to equalize card heights within visible items
+        function equalizeCardHeights() {
+          var $carousel = $("#servicesCarousel");
+          var $visibleItems = $carousel.find(".owl-item.active:not(.cloned), .owl-item.active:not(.cloned)");
+          
+          // Reset heights first
+          $carousel.find(".owl-item .item .card").css('min-height', 'auto');
+          
+          // Process each group of visible items (based on items shown)
+          var itemsToShow = getCurrentItemsCount();
+          
+          $visibleItems.each(function(index) {
+            if (index % itemsToShow === 0) {
+              var $group = $visibleItems.slice(index, index + itemsToShow);
+              var maxHeight = 0;
+              
+              // Find max height in this group
+              $group.find(".item .card").each(function() {
+                var height = $(this).outerHeight();
+                if (height > maxHeight) {
+                  maxHeight = height;
+                }
+              });
+              
+              // Set all cards in group to max height
+              $group.find(".item .card").css('min-height', maxHeight + 'px');
+            }
+          });
+        }
+        
+        // Get current number of items to show based on screen size
+        function getCurrentItemsCount() {
+          var width = $(window).width();
+          if (width >= 1000) return 3;
+          if (width >= 600) return 2;
+          return 1;
+        }
+
+        // Equalize heights on window resize
+        var resizeTimer;
+        $(window).on('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            equalizeCardHeights();
+          }, 250);
+        });
+
+        // Initial equalization after page load
+        setTimeout(function() {
+          equalizeCardHeights();
+        }, 600);
+      });
+    </script>
+
     <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
       <div
         id="contactToast"
@@ -1133,6 +1228,123 @@ Proactiveness ,Innovativeness
       }
       .month-link:hover {
         color: #0d6efd;
+      }
+
+      /* Owl Carousel Services Custom Styles */
+      .services-carousel {
+        padding: 20px 0;
+      }
+
+      .services-carousel .owl-stage {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .services-carousel .owl-item {
+        padding: 0 10px;
+        display: flex;
+        align-items: stretch;
+        height: auto;
+      }
+
+      .services-carousel .owl-item > .item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .services-carousel .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+      }
+
+      .services-carousel .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .services-carousel .card-title {
+        flex-shrink: 0;
+      }
+
+      .services-carousel .card-text {
+        flex: 1;
+      }
+
+      .services-carousel .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+      }
+
+      .services-carousel .owl-nav {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .services-carousel .owl-nav button {
+        background-color: #0d6efd !important;
+        color: white !important;
+        width: 45px;
+        height: 45px;
+        border-radius: 50% !important;
+        margin: 0 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 18px;
+      }
+
+      .services-carousel .owl-nav button:hover {
+        background-color: #0b5ed7 !important;
+        transform: scale(1.1);
+      }
+
+      .services-carousel .owl-nav button:focus {
+        outline: none;
+      }
+
+      .services-carousel .owl-dots {
+        display: none !important;
+      }
+
+      .services-carousel .owl-dots button.owl-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #dee2e6 !important;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .services-carousel .owl-dots button.owl-dot.active {
+        background-color: #0d6efd !important;
+        width: 30px;
+        border-radius: 6px;
+      }
+
+      .services-carousel .owl-dots button.owl-dot:focus {
+        outline: none;
+      }
+
+      @media (max-width: 768px) {
+        .services-carousel .owl-nav {
+          margin-top: 20px;
+        }
+        .services-carousel .owl-nav button {
+          width: 35px;
+          height: 35px;
+          font-size: 14px;
+          margin: 0 5px;
+        }
       }
     </style>
   </body>
