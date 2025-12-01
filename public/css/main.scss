@@ -36,6 +36,10 @@ img {
   background-color: rgba(0, 0, 0, 0.7) !important;
   border-bottom: 1px solid #fff;
 }
+.navbar-toggler{
+      color: #fff;
+    background: #fff;
+}
 .navbar-brand{
   img{
     width: 125px;
@@ -123,7 +127,7 @@ ease-in-out;
   transition: transform 0.3s ease;
 }
 
-//  fixed toggle button css
+//  fixed toggle button css start now
 .fix-box{ position: fixed; top:35%; left:0; z-index:999; font-size: 14px;}
 .whats-new{color: #fff;
    background:#242c42;
@@ -158,6 +162,7 @@ ease-in-out;
 .social-fx li strong{ font-weight:normal;}
 .social-fx li span{ float: right; margin-top: -3px;}
 .social-fx li:hover{ margin-left:0; transition:0.5s;}
+//  fixed toggle button css end now
 
 
 .carousel-item{
@@ -231,7 +236,17 @@ ease-in-out;
 .about-link{
   text-decoration: none;
 }
-
+.news-box{
+  table{
+    margin-top: 20px;
+    td{
+          padding: 4px 10px;
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+}
 .newsTitle{
   background-color: #0580c6;
   padding: 10px;
@@ -346,6 +361,65 @@ ease-in-out;
     width: 100%;
 }
 
+.marquee-box:hover .marquee-content {
+    animation-play-state: paused !important;
+}
+  @keyframes marquee {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.service-bnr{
+  background-image: url(../src/assets/images/black-bg.png);
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  position: relative;
+  .sec-bg{
+    width: 180%;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    top: 85px;
+    right: 0;
+    @media screen and (max-width:991px) {
+      display: none;
+    }
+    img{
+      border-radius: 8px;
+    }
+  }
+  .dotted-bg{
+    margin-top: 90px;
+    margin-left: 60px;
+  }
+  .main-heading{
+    position: absolute;
+    left: 12%;
+    top: 50%;
+    z-index: 2;
+    padding: 8px 0;
+    color: #0d6efd;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 600;
+    &:after{
+    position: absolute;
+    border: 2px solid #0d6efd;
+    border-radius: 46px;
+    left: 6px;
+    top: -10px;
+    content: "";
+    width: 45px;
+    }
+  }
+}
+
+
 footer{
   .nav-item{
     .nav-link{
@@ -416,6 +490,20 @@ footer{
 .are-container{
   .are-we-bnr{
     height: 350px;
+    @media screen and (max-width:991px) {
+      height: 250px;
+    }
+  }
+}
+.map-sec{
+  text-align: center;
+  @media screen and (max-width:991px) {
+    iframe{
+    width: 280px;
+    height: 240px;
+    text-align: center;
+            margin-bottom: 30px;
+    }
   }
 }
 
@@ -445,4 +533,104 @@ footer{
 }
 .contact-us-section{
   padding: 8rem 0;
+}
+
+.box-details{
+  margin-left: 180px;
+  padding: 25px;
+  @media screen and (max-width:991px) {
+    margin-left: 0px;
+    padding:10px;
+  }
+}
+.bxhead h3{ 
+  font-size:24px; 
+  text-align:left; 
+  color:#56698F; 
+  line-height: 24px; 
+  position:relative;
+  padding-bottom: 10px; 
+  margin-bottom: 5px;
+  @media screen and (max-width:991px) {
+    text-align: center;
+  }
+}
+.bxhead h3:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 9vw;
+    height: 2px;
+    background-color: #0d6efd;
+    @media screen and (max-width:991px) {
+    display: none;
+  }
+}
+.bxhead h4{ 
+  font-size:16px; 
+  text-align:left; 
+  color:#56698F; 
+  line-height:30px;
+  @media screen and (max-width:991px) {
+    text-align: center;
+  }
+}
+.boxtm p{ 
+  text-align:right;
+  @media screen and (max-width:991px) {
+    text-align: center;
+  }
+}
+.mg-box{
+  background: #eee;
+  overflow: visible;
+  margin-top: 50px;
+  min-height: 200px;
+    @media screen and (max-width:991px) {
+      min-height: auto;
+      margin-top: 0;
+      padding-top: 30px;
+    }
+}
+.mg-box img {
+    float: left;
+    width: 160px;
+    height: 200px;
+    box-shadow: 2px 2px 5px #222;
+    margin-top: -30px;
+    @media screen and (max-width:991px) {
+          margin: 0px auto 0;
+          float: none;
+    }
+}
+
+
+.vl {
+    border-left: 4px solid #0d6efd;
+    height: 500px;
+    margin-top: 20px;
+    margin-left: 25%;
+    @media screen and (max-width:991px) {
+      display: none;
+    }
+}
+.descBox{
+  h3 {
+    font-size: 16px;
+    padding: 0 0 0 0;
+    color: #0d6efd;
+    margin-top: 15px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 35px;
+  }
+  ul{
+    li{
+    line-height: 2;
+    font-size: 14px;
+    color: #444444;
+    position: relative;
+    }
+  }
 }

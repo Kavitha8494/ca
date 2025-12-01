@@ -383,8 +383,14 @@ app.get("/contact-us", (req, res) => {
 app.get("/about-us", (req, res) => {
   res.render("about-us", { title: "About Us" });
 });
-app.get("/news", (req, res) => {
-  res.render("news", { title: "News" });
+app.get("/news",  async (req, res) => {
+
+  let business_news , national_news, international_news;
+  [business_news] = await db.execute("SELECT * FROM news where `TYPE`='Business'  ORDER BY TIMESTAMP DESC");
+  [national_news] = await db.execute("SELECT * FROM news where `TYPE`='National'  ORDER BY TIMESTAMP DESC");
+  [international_news] = await db.execute("SELECT * FROM news where `TYPE`='International'  ORDER BY TIMESTAMP DESC");
+  
+  res.render("news", { title: "News", business_news: business_news || [] , national_news: national_news || [] , international_news: international_news || [] });
 });
 app.get("/disclaimer", (req, res) => {
   res.render("disclaimer", { title: "Disclaimer" });

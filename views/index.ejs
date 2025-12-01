@@ -149,44 +149,6 @@
 
       <%- include("./components/header.ejs") %>
 
-      <!-- fixed toggle button -->
-      <!-- <div class="fix-box">
-        <ul class="social-fx">
-          <li>
-            <a href="#"
-              ><strong>Query</strong>
-              <span
-                ><img
-                  src="https://www.vsmllp.com/resource/Image/qr.png" /></span
-            ></a>
-          </li>
-          <li>
-            <a href="#" target="_blank"
-              ><strong>Career</strong>
-              <span
-                ><img
-                  src="https://www.vsmllp.com/resource/Image/career.png" /></span
-            ></a>
-          </li>
-          <li>
-            <a href="#" target="_blank"
-              ><strong>Whats App</strong>
-              <span
-                ><img
-                  src="https://www.vsmllp.com/resource/Image/wh.png" /></span
-            ></a>
-          </li>
-          <li>
-            <a href="#"
-              ><strong>Contact Us</strong>
-              <span
-                ><img
-                  src="https://www.vsmllp.com/resource/Image/co.png" /></span
-            ></a>
-          </li>
-        </ul>
-      </div> -->
-
 
       <!-- Carousel (NO animation - as per CA template style) -->
       <div
@@ -194,17 +156,17 @@
         class="carousel slide carousel-fade"
         data-bs-ride="carousel"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="3000">
+        <div class="carousel-inner" style="min-height:100vh !important;">
+          <div class="carousel-item active" data-bs-interval="3000" style="min-height:100vh !important;">
             <img
-              src="/images/carousel/slider.png"
+              src="/images/carousel/banner2.jpg"
               class="d-block w-100 h-100 cover"
               alt="Chartered Accountancy"
             />
           </div>
-          <div class="carousel-item" data-bs-interval="3000">
+          <div class="carousel-item" data-bs-interval="3000" style="min-height:100vh !important;">
             <img
-              src="/images/carousel/slider1.png"
+              src="/images/carousel/banner3.jpg"
               class="d-block w-100 h-100 cover"
               alt="The Role of Chartered Accountant in Nation's Progress"
             />
@@ -402,7 +364,7 @@ Proactiveness ,Innovativeness
           <div class="row align-items-center mt-5">
             <div class="col-12 col-md-6" data-aos="fade-right">
               <img
-                src="https://caportal.saginfotech.com/caportal/ca-template-79/images/clients-home.png"
+                src="/images/clients-home.png"
                 alt="client"
               />
             </div>
@@ -425,11 +387,11 @@ Proactiveness ,Innovativeness
                         <i class="fa-solid fa-quote-left quote-icon"></i>
                       </div>
                       <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content...</p>
+                        <h5>ABC PVT LTD</h5>
+                        <p>It's been a pleasure to work with the Super CA team. They are always friendly, respond quickly, and explain complex tax matters very clearly.</p>
                       </div>
                     </div>
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                       <div class="text-left d-flex">
                         <i class="fa-solid fa-quote-left quote-icon"></i>
                       </div>
@@ -437,8 +399,8 @@ Proactiveness ,Innovativeness
                         <h5>Second slide label</h5>
                         <p>Some representative placeholder content...</p>
                       </div>
-                    </div>
-                    <div class="carousel-item">
+                    </div> -->
+                    <!-- <div class="carousel-item">
                       <div class="text-left d-flex">
                         <i class="fa-solid fa-quote-left quote-icon"></i>
                       </div>
@@ -446,7 +408,7 @@ Proactiveness ,Innovativeness
                         <h5>Third slide label</h5>
                         <p>Some representative placeholder content...</p>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
 
                   <button
@@ -461,7 +423,7 @@ Proactiveness ,Innovativeness
                       viewBox="0 0 24 24"
                       stroke-width="3"
                       stroke="currentColor"
-                    >
+                     style="color: #0cacee !important;">
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -481,7 +443,7 @@ Proactiveness ,Innovativeness
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke-width="3"
-                      stroke="currentColor"
+                      stroke="currentColor" style="color: #0cacee !important;"
                     >
                       <path
                         stroke-linecap="round"
@@ -497,6 +459,8 @@ Proactiveness ,Innovativeness
         </div>
       </div>
 
+      
+
       <!-- News Section -->
       <div class="container">
         <div class="mx-auto text-center py-5" data-aos="fade-up">
@@ -506,12 +470,10 @@ Proactiveness ,Innovativeness
         </div>
 
         <div class="row">
-          <div
-            class="col-12 col-md-4 mb-3"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <div class="border border-secondary border-opacity-50 border-top-0">
+          <div class="col-12 col-md-4 mb-3">
+            <div
+              class="border border-secondary border-opacity-50 border-top-0 h-100"
+            >
               <div class="newsTitle">NEWS</div>
               <div class="newsBody">
                 <div class="marquee-box">
@@ -521,31 +483,88 @@ Proactiveness ,Innovativeness
                     <p class="news fs-6 lh-base">
                       Will Nirmala Sitharaman increase GST rates?
                     </p>
-
-                    <!-- <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
+                    <!-- <div class="news mb-3 fw-semibold">14 DEC 2025</div>
+                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
                     <p class="news fs-6 lh-base">
                       Will Nirmala Sitharaman increase GST rates?
                     </p> -->
                   </div>
-
-                  
                 </div>
               </div>
             </div>
           </div>
 
-         
-
-          <div
-            class="col-12 col-md-4 mb-3"
-            data-aos="fade-up"
-            data-aos-delay="10"
-          >
-            <div class="border border-secondary border-opacity-50 border-top-0">
-              <div class="newsTitle">Due Date Reminder</div>
+          <div class="col-12 col-md-4 mb-3 news-box">
+            <div
+              class="border border-secondary border-opacity-50 border-top-0 h-100"
+            >
+              <div class="newsTitle">NEWS</div>
+              <table
+                cellspacing="0"
+                border="0"
+                style="border-collapse: collapse"
+              >
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="#">Jan</a>
+                    </td>
+                    <td>
+                      <a href="#">Feb</a>
+                    </td>
+                    <td>
+                      <a href="#">Mar</a>
+                    </td>
+                    <td>
+                      <a href="#">Apr</a>
+                    </td>
+                    <td>
+                      <a href="#">May</a>
+                    </td>
+                    <td>
+                      <a href="#">June</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="#">July</a>
+                    </td>
+                    <td>
+                      <a href="#">Aug</a>
+                    </td>
+                    <td>
+                      <a href="#">Sep</a>
+                    </td>
+                    <td>
+                      <a href="#">Oct</a>
+                    </td>
+                    <td>
+                      <a href="#">Nov</a>
+                    </td>
+                    <td>
+                      <a href="#">Dec</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="#">All</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
               <div class="newsBody">
                 <div class="marquee-box">
                   <div class="marquee-content">
+                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
+                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
+                    <p class="news fs-6 lh-base">
+                      Will Nirmala Sitharaman increase GST rates?
+                    </p>
                     <div class="news mb-3 fw-semibold">14 DEC 2025</div>
                     <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
                     <p class="news fs-6 lh-base">
@@ -557,20 +576,23 @@ Proactiveness ,Innovativeness
             </div>
           </div>
 
-          <div
-            class="col-12 col-md-4 mb-3"
-            data-aos="fade-up"
-            data-aos-delay="250"
-          >
-            <div class="border border-secondary border-opacity-50 border-top-0">
-              <div class="newsTitle">Blog News</div>
+          <div class="col-12 col-md-4 mb-3">
+            <div
+              class="border border-secondary border-opacity-50 border-top-0 h-100"
+            >
+              <div class="newsTitle">NEWS</div>
               <div class="newsBody">
                 <div class="marquee-box">
                   <div class="marquee-content">
                     <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <!-- <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p> -->
+                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
                     <p class="news fs-6 lh-base">
-                      <a target="_blank" href="#">About Us</a> - ASSOCIATES   is a professional firm of Chartered Accountants s...
+                      Will Nirmala Sitharaman increase GST rates?
+                    </p>
+                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
+                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
+                    <p class="news fs-6 lh-base">
+                      Will Nirmala Sitharaman increase GST rates?
                     </p>
                   </div>
                 </div>
@@ -596,7 +618,7 @@ Proactiveness ,Innovativeness
               <div class="row">
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
                   <div class="card shadow-sm p-4 mb-4">
-                    <div class="w-6 h-6 mx-auto mb-3">
+                    <div class="w-6 h-6 mx-auto mb-3 img-box">
                       <img
                       src="/images/teams/team1.jpg"
                       class="card-img-top w-100 h-100 cover rounded"
@@ -604,17 +626,9 @@ Proactiveness ,Innovativeness
                     </div>
                     <div class="card-body text-center">
                       <h5 class="card-title fw-semibold fs-5 mb-3 primary">
-                        Vishnu Agarwal B.Com. and F.C.A
+                        Vishnu Agarwal 
                       </h5>
-                      <p class="card-text">With over 10 years of varied experience with most of his stint at one of the Big Four
-multinational accounting firm in the field of statutory audit, taxation, internal audit
-and due diligence.
-He has successfully handle various assignments related to preparation of
-Financial Statement (IND AS and IGAAP) , Implementation of Ind AS,
-Consolidations of financial statements, Group reporting, Certification, Due
-diligence, Review of internal controls over financial reporting (IFC), IFC
-implementation, Income Tax and GST etc. at various listed companies as well as
-on- listed large and SME clients in manufacturing, retail and hospitality industry.</p>
+                      <p class="card-text"> B.Com. and F.C.A</p>
                     </div>
                   </div>
                 </div>

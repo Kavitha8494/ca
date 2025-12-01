@@ -1,9 +1,61 @@
+<style>
+  .text-primary{
+    color: #0cacee !important;
+  }
+  .newsTitle{
+    background-color: #0cacee !important;
+  }
+  .newsTitle::after{
+    border-top: 15px solid #0cacee !important;
+  }
+  .bg-primary{
+    background-color: #0cacee !important;
+  }
+  .quote-icon {
+    color: #0cacee !important;
+  }
+  .img-box {
+  width: 170px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.social-fx li {
+   background: #111111 !important;
+}
+.social-fx li a{
+   color: rgba(255, 255, 255, 0.65) !important;
+;
+}
+.nav-link {
+  color:  rgba(255, 255, 255, 0.65) !important; 
+  font-weight: 700;
+}
+.footer-bg {
+  background-color: #111111;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-bottom: 1px solid #fff;
+}
+</style>
+
 <!-- Nav bar -->
+
 <nav
   class="navbar fixed-top navbar-expand-lg bg-light"
   data-aos="fade-down"
   data-aos-duration="900"
-  data-aos-delay="100"
+  data-aos-delay="100" style=" background-color: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(10px) !important;"
 >
   <div class="container">
     <a
@@ -13,8 +65,8 @@
       data-aos-delay="200"
     >
       <img
-        src="/images/logo-new.png"
-        alt="logo" style="width:63px !important"
+        src="/images/logo.png"
+        alt="logo" style="width:70px !important"
     /></a>
 
     <button
@@ -37,47 +89,52 @@
           <a
             class="nav-link fs-6 text-uppercase active"
             aria-current="page"
-            href="/"
+            href="/" style="color: black !important;"
             >Home</a
           >
         </li>
 
         <li class="nav-item" data-aos="fade-down" data-aos-delay="300">
           <a class="nav-link fs-6 text-uppercase text-black" href="/about-us"
-            >About Us</a
+            style="color: black !important;">About Us</a
           >
         </li>
 
         <li class="nav-item" data-aos="fade-down" data-aos-delay="350">
-          <a href="#" class="nav-link fs-6 text-uppercase">
+          <a href="#" class="nav-link fs-6 text-uppercase" style="color: black !important;">
             Services <span class="arrow"></span>
           </a>
           <div class="dropdown">
-            <a href="/Services/audit-and-assurance" class="dropdown-item">Audit and Assurance</a>
-            <a href="#" class="dropdown-item">Internal audit</a>
-            <a href="#" class="dropdown-item">Direct Tax</a>
-            <a href="#" class="dropdown-item">International taxation</a>
-            <a href="#" class="dropdown-item">Indirect Tax</a>
-            <a href="#" class="dropdown-item">Legal and Secretarial compliances</a>
-            <a href="#" class="dropdown-item">Outsourcing solutions</a>
-            <a href="#" class="dropdown-item">Back-office solutions</a>
+            <a href="/Services/audit-and-assurance" style="color: black !important;" class="dropdown-item">Audit and Assurance</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">Internal audit</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">Direct Tax</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">International taxation</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">Indirect Tax</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">Legal and Secretarial compliances</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">Outsourcing solutions</a>
+            <a href="#" class="dropdown-item" style="color: black !important;">Back-office solutions</a>
           </div>
         </li>
-
-        <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
-          <a class="nav-link fs-6 text-uppercase text-black" href="/admin"
-            >Admin</a
+         <li class="nav-item" data-aos="fade-down" data-aos-delay="450">
+          <a class="nav-link fs-6 text-uppercase text-black" style="color: black !important;" href="/teams"
+            >Teams</a
           >
         </li>
 
+        <!-- <li class="nav-item" data-aos="fade-down" data-aos-delay="400">
+          <a class="nav-link fs-6 text-uppercase text-black" href="/admin"
+            >Admin</a
+          >
+        </li> -->
+
         <li class="nav-item" data-aos="fade-down" data-aos-delay="450">
-          <a class="nav-link fs-6 text-uppercase text-black" href="/careers"
+          <a class="nav-link fs-6 text-uppercase text-black" style="color: black !important;" href="/careers"
             >Career</a
           >
         </li>
 
         <li class="nav-item" data-aos="fade-down" data-aos-delay="500">
-          <a class="nav-link fs-6 text-uppercase text-black" href="/contact-us"
+          <a class="nav-link fs-6 text-uppercase text-black" style="color: black !important;" href="/contact-us"
             >Contact Us</a
           >
         </li>
@@ -85,5 +142,45 @@
     </div>
   </div>
 </nav>
+
+
+      <!-- fixed toggle button -->
+       <div class="fix-box">
+        <ul class="social-fx">
+          <li>
+            <a href="/query"
+              ><strong>Query</strong>
+              <span
+                ><img
+                  src="/images/qr.png" /></span
+            ></a>
+          </li>
+          <li>
+            <a href="/careers" target="_blank"
+              ><strong>Career</strong>
+              <span
+                ><img
+                  src="/images/career.png" /></span
+            ></a>
+          </li>
+          <li>
+            <a href="https://api.whatsapp.com/send?phone=919321052466&amp;;text=Hello" target="_blank"
+              ><strong>Whats App</strong>
+              <span
+                ><img
+                  src="/images/wh.png" /></span
+            ></a>
+          </li>
+          <li>
+            <a href="/contact-us"
+              ><strong>Contact Us</strong>
+              <span
+                ><img
+                  src="/images/co.png" /></span
+            ></a>
+          </li>
+        </ul>
+      </div>
+
 
  
