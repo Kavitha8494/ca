@@ -576,6 +576,140 @@ app.post('/api/query', async (req, res) => {
   }
 });
 
+// API endpoint to fetch Due Date Reminders
+app.get('/api/due-date-reminders', async (req, res) => {
+  try {
+    const month = req.query.month; // month can be 'all' or a number 1-12
+    
+    let query = "SELECT ID, DATE, CONTENT, LINK_URL FROM news_due_date_blog WHERE TYPE = 'DUE_DATE_REMAINDER'";
+    let queryParams = [];
+    
+    // Filter by month if provided and not 'all'
+    if (month && month !== 'all') {
+      const monthNum = parseInt(month);
+      if (monthNum >= 1 && monthNum <= 12) {
+        // Filter by month using DATE_FORMAT
+        query += " AND MONTH(DATE) = ?";
+        queryParams.push(monthNum);
+      }
+    }
+    
+    query += " ORDER BY DATE ASC";
+    
+    const [results] = await db.execute(query, queryParams);
+    
+    // Format the results
+    const formattedResults = results.map(item => {
+      // Format date as "DD MMM YYYY" (e.g., "14 DEC 2025")
+      const dateObj = new Date(item.DATE);
+      const day = dateObj.getDate();
+      const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+      const monthName = monthNames[dateObj.getMonth()];
+      const year = dateObj.getFullYear();
+      const formattedDate = `${day} ${monthName} ${year}`;
+      
+      return {
+        id: item.ID,
+        date: formattedDate,
+        content: item.CONTENT,
+        linkUrl: item.LINK_URL || null
+      };
+    });
+    
+    return res.json({
+      success: true,
+      data: formattedResults
+    });
+  } catch (error) {
+    console.error('Failed to fetch due date reminders:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Unable to fetch due date reminders. Please try again later.',
+      data: []
+    });
+  }
+});
+
+// API endpoint to fetch NEWS content
+app.get('/api/news', async (req, res) => {
+  try {
+    let query = "SELECT ID, DATE, CONTENT, LINK_URL FROM news_due_date_blog WHERE TYPE = 'NEWS'";
+    query += " ORDER BY DATE DESC";
+    
+    const [results] = await db.execute(query);
+    
+    // Format the results
+    const formattedResults = results.map(item => {
+      // Format date as "DD MMM YYYY" (e.g., "14 DEC 2025")
+      const dateObj = new Date(item.DATE);
+      const day = dateObj.getDate();
+      const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+      const monthName = monthNames[dateObj.getMonth()];
+      const year = dateObj.getFullYear();
+      const formattedDate = `${day} ${monthName} ${year}`;
+      
+      return {
+        id: item.ID,
+        date: formattedDate,
+        content: item.CONTENT,
+        linkUrl: item.LINK_URL || null
+      };
+    });
+    
+    return res.json({
+      success: true,
+      data: formattedResults
+    });
+  } catch (error) {
+    console.error('Failed to fetch news:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Unable to fetch news. Please try again later.',
+      data: []
+    });
+  }
+});
+
+// API endpoint to fetch BLOGS content
+app.get('/api/blogs', async (req, res) => {
+  try {
+    let query = "SELECT ID, DATE, CONTENT, LINK_URL FROM news_due_date_blog WHERE TYPE = 'BLOGS'";
+    query += " ORDER BY DATE DESC";
+    
+    const [results] = await db.execute(query);
+    
+    // Format the results
+    const formattedResults = results.map(item => {
+      // Format date as "DD MMM YYYY" (e.g., "14 DEC 2025")
+      const dateObj = new Date(item.DATE);
+      const day = dateObj.getDate();
+      const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+      const monthName = monthNames[dateObj.getMonth()];
+      const year = dateObj.getFullYear();
+      const formattedDate = `${day} ${monthName} ${year}`;
+      
+      return {
+        id: item.ID,
+        date: formattedDate,
+        content: item.CONTENT,
+        linkUrl: item.LINK_URL || null
+      };
+    });
+    
+    return res.json({
+      success: true,
+      data: formattedResults
+    });
+  } catch (error) {
+    console.error('Failed to fetch blogs:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Unable to fetch blogs. Please try again later.',
+      data: []
+    });
+  }
+});
+
 // 404 handler
 app.use("*", (req, res) => {
   res.status(404).send('Page not found');

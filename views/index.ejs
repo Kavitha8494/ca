@@ -476,18 +476,9 @@ Proactiveness ,Innovativeness
             >
               <div class="newsTitle">NEWS</div>
               <div class="newsBody">
-                <div class="marquee-box">
-                  <div class="marquee-content">
-                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
-                    <p class="news fs-6 lh-base">
-                      Will Nirmala Sitharaman increase GST rates?
-                    </p>
-                    <!-- <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
-                    <p class="news fs-6 lh-base">
-                      Will Nirmala Sitharaman increase GST rates?
-                    </p> -->
+                <div class="marquee-box" id="newsMarquee">
+                  <div class="marquee-content" id="newsContent">
+                    <!-- Dynamic content will be loaded here -->
                   </div>
                 </div>
               </div>
@@ -507,47 +498,47 @@ Proactiveness ,Innovativeness
                 <tbody>
                   <tr>
                     <td>
-                      <a href="#">Jan</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="1">Jan</a>
                     </td>
                     <td>
-                      <a href="#">Feb</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="2">Feb</a>
                     </td>
                     <td>
-                      <a href="#">Mar</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="3">Mar</a>
                     </td>
                     <td>
-                      <a href="#">Apr</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="4">Apr</a>
                     </td>
                     <td>
-                      <a href="#">May</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="5">May</a>
                     </td>
                     <td>
-                      <a href="#">June</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="#">July</a>
-                    </td>
-                    <td>
-                      <a href="#">Aug</a>
-                    </td>
-                    <td>
-                      <a href="#">Sep</a>
-                    </td>
-                    <td>
-                      <a href="#">Oct</a>
-                    </td>
-                    <td>
-                      <a href="#">Nov</a>
-                    </td>
-                    <td>
-                      <a href="#">Dec</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="6">June</a>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <a href="#">All</a>
+                      <a href="javascript:void(0)" class="month-link" data-month="7">July</a>
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)" class="month-link" data-month="8">Aug</a>
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)" class="month-link" data-month="9">Sep</a>
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)" class="month-link" data-month="10">Oct</a>
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)" class="month-link" data-month="11">Nov</a>
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)" class="month-link" data-month="12">Dec</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="month-link" data-month="all">All</a>
                     </td>
                     <td></td>
                     <td></td>
@@ -558,18 +549,9 @@ Proactiveness ,Innovativeness
                 </tbody>
               </table>
               <div class="newsBody">
-                <div class="marquee-box">
-                  <div class="marquee-content">
-                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
-                    <p class="news fs-6 lh-base">
-                      Will Nirmala Sitharaman increase GST rates?
-                    </p>
-                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
-                    <p class="news fs-6 lh-base">
-                      Will Nirmala Sitharaman increase GST rates?
-                    </p>
+                <div class="marquee-box" id="dueDateReminderMarquee">
+                  <div class="marquee-content" id="dueDateReminderContent">
+                    <!-- Dynamic content will be loaded here -->
                   </div>
                 </div>
               </div>
@@ -582,18 +564,9 @@ Proactiveness ,Innovativeness
             >
               <div class="newsTitle">BLOGS</div>
               <div class="newsBody">
-                <div class="marquee-box">
-                  <div class="marquee-content">
-                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
-                    <p class="news fs-6 lh-base">
-                      Will Nirmala Sitharaman increase GST rates?
-                    </p>
-                    <div class="news mb-3 fw-semibold">14 DEC 2025</div>
-                    <p class="news fs-6 lh-base">Govt Informs 15th FFC...</p>
-                    <p class="news fs-6 lh-base">
-                      Will Nirmala Sitharaman increase GST rates?
-                    </p>
+                <div class="marquee-box" id="blogsMarquee">
+                  <div class="marquee-content" id="blogsContent">
+                    <!-- Dynamic content will be loaded here -->
                   </div>
                 </div>
               </div>
@@ -832,5 +805,335 @@ Proactiveness ,Innovativeness
     </div>
 
     <script src="/js/script.js"></script>
+    
+    <script>
+      // Due Date Reminder functionality
+      (function() {
+        const monthLinks = document.querySelectorAll('.month-link');
+        const contentContainer = document.getElementById('dueDateReminderContent');
+        const marqueeBox = document.getElementById('dueDateReminderMarquee');
+        let currentMonth = 'all';
+
+        // Function to remove HTML tags and get plain text
+        function stripHtml(html) {
+          const tmp = document.createElement('DIV');
+          tmp.innerHTML = html;
+          return tmp.textContent || tmp.innerText || '';
+        }
+
+        // Function to highlight selected month
+        function highlightMonth(selectedMonth) {
+          monthLinks.forEach(link => {
+            link.classList.remove('active-month');
+            if (link.getAttribute('data-month') === selectedMonth) {
+              link.classList.add('active-month');
+            }
+          });
+        }
+
+        // Function to load and display due date reminders
+        async function loadDueDateReminders(month = 'all') {
+          try {
+            const response = await fetch(`/api/due-date-reminders?month=${month}`);
+            const result = await response.json();
+
+            if (result.success && result.data && result.data.length > 0) {
+              // Clear existing content
+              contentContainer.innerHTML = '';
+
+              // Create content items
+              result.data.forEach(item => {
+                // Date element
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'news mb-3 fw-semibold';
+                dateDiv.textContent = item.date;
+
+                // Content element
+                const contentP = document.createElement('p');
+                contentP.className = 'news fs-6 lh-base';
+                // Strip HTML tags for display
+                const plainContent = stripHtml(item.content);
+                contentP.textContent = plainContent;
+
+                // If there's a link URL, wrap content in a link
+                if (item.linkUrl) {
+                  const linkWrapper = document.createElement('a');
+                  linkWrapper.href = item.linkUrl;
+                  linkWrapper.target = '_blank';
+                  linkWrapper.style.textDecoration = 'none';
+                  linkWrapper.style.color = 'inherit';
+                  linkWrapper.appendChild(contentP);
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(linkWrapper);
+                } else {
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(contentP);
+                }
+              });
+
+              // Restart marquee animation
+              restartMarquee();
+            } else {
+              // No data available
+              contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">No reminders available</div>';
+            }
+
+            // Highlight the selected month
+            highlightMonth(month);
+            currentMonth = month;
+          } catch (error) {
+            console.error('Error loading due date reminders:', error);
+            contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">Error loading reminders</div>';
+          }
+        }
+
+        // Function to restart marquee animation
+        function restartMarquee() {
+          const content = contentContainer;
+          const box = marqueeBox;
+
+          if (!box || !content) return;
+
+          const boxHeight = box.offsetHeight;
+          const contentHeight = content.scrollHeight;
+
+          if (contentHeight > boxHeight) {
+            const duration = (contentHeight / 50) * 1000;
+            content.style.transform = `translateY(${boxHeight}px)`;
+            content.style.animation = `marquee ${duration}ms linear infinite`;
+          } else {
+            content.style.animation = 'none';
+            content.style.transform = 'translateY(0)';
+          }
+        }
+
+        // Add click handlers to month links
+        monthLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const month = this.getAttribute('data-month');
+            loadDueDateReminders(month);
+          });
+        });
+
+        // Load all reminders on page load
+        window.addEventListener('DOMContentLoaded', function() {
+          loadDueDateReminders('all');
+        });
+
+        // Also load when page is fully loaded (in case DOMContentLoaded already fired)
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            loadDueDateReminders('all');
+          });
+        } else {
+          loadDueDateReminders('all');
+        }
+      })();
+
+      // NEWS functionality
+      (function() {
+        const contentContainer = document.getElementById('newsContent');
+        const marqueeBox = document.getElementById('newsMarquee');
+
+        // Function to remove HTML tags and get plain text
+        function stripHtml(html) {
+          const tmp = document.createElement('DIV');
+          tmp.innerHTML = html;
+          return tmp.textContent || tmp.innerText || '';
+        }
+
+        // Function to restart marquee animation
+        function restartMarquee() {
+          const content = contentContainer;
+          const box = marqueeBox;
+
+          if (!box || !content) return;
+
+          const boxHeight = box.offsetHeight;
+          const contentHeight = content.scrollHeight;
+
+          if (contentHeight > boxHeight) {
+            const duration = (contentHeight / 50) * 1000;
+            content.style.transform = `translateY(${boxHeight}px)`;
+            content.style.animation = `marquee ${duration}ms linear infinite`;
+          } else {
+            content.style.animation = 'none';
+            content.style.transform = 'translateY(0)';
+          }
+        }
+
+        // Function to load and display news
+        async function loadNews() {
+          try {
+            const response = await fetch('/api/news');
+            const result = await response.json();
+
+            if (result.success && result.data && result.data.length > 0) {
+              // Clear existing content
+              contentContainer.innerHTML = '';
+
+              // Create content items
+              result.data.forEach(item => {
+                // Date element
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'news mb-3 fw-semibold';
+                dateDiv.textContent = item.date;
+
+                // Content element
+                const contentP = document.createElement('p');
+                contentP.className = 'news fs-6 lh-base';
+                // Strip HTML tags for display
+                const plainContent = stripHtml(item.content);
+                contentP.textContent = plainContent;
+
+                // If there's a link URL, wrap content in a link
+                if (item.linkUrl) {
+                  const linkWrapper = document.createElement('a');
+                  linkWrapper.href = item.linkUrl;
+                  linkWrapper.target = '_blank';
+                  linkWrapper.style.textDecoration = 'none';
+                  linkWrapper.style.color = 'inherit';
+                  linkWrapper.appendChild(contentP);
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(linkWrapper);
+                } else {
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(contentP);
+                }
+              });
+
+              // Restart marquee animation
+              restartMarquee();
+            } else {
+              // No data available
+              contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">No news available</div>';
+            }
+          } catch (error) {
+            console.error('Error loading news:', error);
+            contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">Error loading news</div>';
+          }
+        }
+
+        // Load news on page load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadNews);
+        } else {
+          loadNews();
+        }
+      })();
+
+      // BLOGS functionality
+      (function() {
+        const contentContainer = document.getElementById('blogsContent');
+        const marqueeBox = document.getElementById('blogsMarquee');
+
+        // Function to remove HTML tags and get plain text
+        function stripHtml(html) {
+          const tmp = document.createElement('DIV');
+          tmp.innerHTML = html;
+          return tmp.textContent || tmp.innerText || '';
+        }
+
+        // Function to restart marquee animation
+        function restartMarquee() {
+          const content = contentContainer;
+          const box = marqueeBox;
+
+          if (!box || !content) return;
+
+          const boxHeight = box.offsetHeight;
+          const contentHeight = content.scrollHeight;
+
+          if (contentHeight > boxHeight) {
+            const duration = (contentHeight / 50) * 1000;
+            content.style.transform = `translateY(${boxHeight}px)`;
+            content.style.animation = `marquee ${duration}ms linear infinite`;
+          } else {
+            content.style.animation = 'none';
+            content.style.transform = 'translateY(0)';
+          }
+        }
+
+        // Function to load and display blogs
+        async function loadBlogs() {
+          try {
+            const response = await fetch('/api/blogs');
+            const result = await response.json();
+
+            if (result.success && result.data && result.data.length > 0) {
+              // Clear existing content
+              contentContainer.innerHTML = '';
+
+              // Create content items
+              result.data.forEach(item => {
+                // Date element
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'news mb-3 fw-semibold';
+                dateDiv.textContent = item.date;
+
+                // Content element
+                const contentP = document.createElement('p');
+                contentP.className = 'news fs-6 lh-base';
+                // Strip HTML tags for display
+                const plainContent = stripHtml(item.content);
+                contentP.textContent = plainContent;
+
+                // If there's a link URL, wrap content in a link
+                if (item.linkUrl) {
+                  const linkWrapper = document.createElement('a');
+                  linkWrapper.href = item.linkUrl;
+                  linkWrapper.target = '_blank';
+                  linkWrapper.style.textDecoration = 'none';
+                  linkWrapper.style.color = 'inherit';
+                  linkWrapper.appendChild(contentP);
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(linkWrapper);
+                } else {
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(contentP);
+                }
+              });
+
+              // Restart marquee animation
+              restartMarquee();
+            } else {
+              // No data available
+              contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">No blogs available</div>';
+            }
+          } catch (error) {
+            console.error('Error loading blogs:', error);
+            contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">Error loading blogs</div>';
+          }
+        }
+
+        // Load blogs on page load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadBlogs);
+        } else {
+          loadBlogs();
+        }
+      })();
+    </script>
+    
+    <style>
+      /* Highlight style for selected month */
+      .month-link.active-month {
+        background-color: #0d6efd;
+        color: white !important;
+        padding: 2px 8px;
+        border-radius: 3px;
+        font-weight: bold;
+      }
+      .month-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .month-link:hover {
+        color: #0d6efd;
+      }
+    </style>
   </body>
 </html>
