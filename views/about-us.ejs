@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/main.css" />
+   
     <!-- FontAwesome CDN -->
     <link
       rel="stylesheet"
@@ -23,8 +24,12 @@
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <title>Chartered Accountant - About Us</title>
+    <title>Chartered Accountant - Home</title>
   </head>
 
   <body>
@@ -86,7 +91,7 @@ Proactiveness ,Innovativeness.
       </div>
 
       <!-- Services Section -->
-         <div class="service-bg">
+    <div class="service-bg">
         <div class="container">
           <div class="mx-auto text-center py-5">
             <h2 class="title lh-base" data-aos="fade-up">
@@ -99,37 +104,33 @@ Proactiveness ,Innovativeness.
             </p>
 
             <div class="my-5 container-fluid">
-              <div class="row">
-                <!-- Service Cards -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
-                  <div class="card shadow-sm p-4 mb-4">
+              <div class="owl-carousel owl-theme services-carousel" id="servicesCarousel">
+                <!-- Service Card 1 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
-                      <!-- <img
-                        src="https://i.ibb.co/xq0zmvFj/smileys.png"
-                        class="card-img-top w-100 h-100 cover rounded"
-                      /> -->
                       <i class="fa-solid fa-magnifying-glass-chart text-primary fs-1"></i>
-
                     </div>
                     <div class="card-body text-center">
-                      <h5 class="card-title fw-semibold fs-5 mb-3">
-                        Audit and Assurance
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                       <a href="/Services/audit-and-assurance" class="black-bg">Audit and Assurance</a> 
                       </h5>
                       <p class="card-text fw-normal">
-                        Audit checks financial accuracy.Assurance increases users’ confidence.
+                        Audit checks financial accuracy.Assurance increases users' confidence.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 2 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-user-check text-primary fs-1"></i>
                     </div>
                     <div class="card-body text-center">
-                      <h5 class="card-title fw-semibold fs-5 mb-3">
-                       Internal audit
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                       <a href="/Services/internal-audit" class="black-bg">Internal audit and Risk Advisory</a>
                       </h5>
                       <p class="card-text fw-normal">
                        Internal audit evaluates risks and strengthens internal control systems.
@@ -138,14 +139,15 @@ Proactiveness ,Innovativeness.
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 3 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-file-invoice-dollar text-primary fs-1"></i>
                     </div>
                     <div class="card-body text-center">
-                      <h5 class="card-title fw-semibold fs-5 mb-3">
-                       Direct Tax
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                        <a href="/Services/direct-tax" class="black-bg">Direct Tax, Disputes & Advisory</a>
                       </h5>
                       <p class="card-text fw-normal">
                        Direct tax is paid directly to the government by individuals.
@@ -154,57 +156,97 @@ Proactiveness ,Innovativeness.
                   </div>
                 </div>
 
-                <!-- Row 2 same pattern -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 4 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-cart-shopping text-primary fs-1"></i>
                     </div>
                     <div class="card-body text-center">
-                      <h5 class="card-title fw-semibold fs-5 mb-3">
-                       Indirect Tax
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                       <a href="/Services/indirect-tax" class="black-bg">GST and litigations</a>
                       </h5>
                       <p class="card-text">Indirect tax is collected through goods and services purchased.</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 5 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-globe text-primary fs-1"></i>
                     </div>
                     <div class="card-body text-center">
-                      <h5 class="card-title fw-semibold fs-5 mb-3">
-                        International Taxation
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                       <a href="/Services/international-taxation" class="black-bg">Cross-border Tax, TP & FEMA Advisory</a> 
                       </h5>
                       <p class="card-text">International taxation governs cross-border income and tax obligations.</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
-                  <div class="card shadow-sm p-4 mb-4">
+                <!-- Service Card 6 -->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
                     <div class="w-6 h-6 mx-auto mb-3">
                       <i class="fa-solid fa-scale-balanced text-primary fs-1"></i>
                     </div>
                     <div class="card-body text-center">
-                      <h5 class="card-title fw-semibold fs-5 mb-3">
-                        Legal & Secretarial compliances
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                       <a href="/Services/legal-secretarial" class="black-bg"> Corporate Law, Secretarial & FEMA Compliance</a>
                       </h5>
                       <p class="card-text">Legal and secretarial compliances ensure proper governance and regulatory adherence.</p>
                     </div>
                   </div>
                 </div>
+
+                <!-- Service Card 7-->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
+                    <div class="w-6 h-6 mx-auto mb-3">
+                      <i class="fa-solid fa-user text-primary fs-1"></i>
+                    </div>
+                    <div class="card-body text-center">
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                       <a href="/Services/outsourcing-solutions" class="black-bg">Global Outsourcing & Virtual CFO Services</a> 
+                      </h5>
+                      <p class="card-text">Smart, scalable business outsourcing solutions.</p>
+                    </div>
+                  </div>
+                </div>
+
+                 <!-- Service Card 8-->
+                <div class="item">
+                  <div class="card shadow-sm p-4 h-100">
+                    <div class="w-6 h-6 mx-auto mb-3">
+                      <i class="fa-solid fa-address-card text-primary fs-1"></i>
+                    </div>
+                    <div class="card-body text-center">
+                      <h5 class="card-title fw-semibold fs-5 mb-3 service-card">
+                        <a href="/Services/backoffice" class="black-bg">Global Back-office solutions</a>
+                      </h5>
+                      <p class="card-text">Smart backoffice support for businesses.</p>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
               </div>
             </div>
           </div>
         </div>
       </div>
      
+     
 
        <!-- Team Section -->
-      <div class="team-bg">
+     <div class="team-bg">
         <div class="container">
           <div class="mx-auto text-center py-5" data-aos="fade-up">
             <h2 class="title lh-base fw-bold">Our Team</h2>
@@ -229,27 +271,28 @@ Proactiveness ,Innovativeness.
                       <h5 class="card-title fw-semibold fs-5 mb-3 primary">
                         Vishnu Agarwal 
                       </h5>
-                      <p class="card-text">B.Com. and F.C.A</p>
+                      <p class="card-text"> B.Com. and F.C.A</p>
                     </div>
                   </div>
                 </div>
 
-                <!-- <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
                   <div class="card shadow-sm p-4 mb-4">
-                    <div class="w-6 h-6 mx-auto mb-3">
+                    <div class="w-6 h-6 mx-auto mb-3 img-box">
                       <img
-                        src="https://i.ibb.co/xq0zmvFj/smileys.png"
-                        class="card-img-top w-100 h-100 cover rounded"
-                      />
+                      src="/images/teams/blank.jpg"
+                      class="card-img-top w-100 h-100 cover rounded"
+                    />
                     </div>
                     <div class="card-body text-center">
                       <h5 class="card-title fw-semibold fs-5 mb-3 primary">
-                        Card title
+                        Pinal Agarwal 
                       </h5>
-                      <p class="card-text">Some quick example...</p>
+                      <p class="card-text"> B.Com. and F.C.A</p>
                     </div>
                   </div>
-                </div> -->
+                </div>
+
 
                 <!-- <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
                   <div class="card shadow-sm p-4 mb-4">
@@ -269,17 +312,16 @@ Proactiveness ,Innovativeness.
                 </div>
               </div> -->
 
-              <!-- <div
-                class="d-flex justify-content-center align-content-center"
+              <div
+                class="d-flex justify-content-center align-content-center service-card"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <button
-                  class="more-btn p-2 rounded-5 bg-primary text-white border-0"
-                >
-                  More Details
-                </button>
-              </div> -->
+                
+                <a href="/teams" class="more-btn p-2 rounded-5 bg-primary text-white border-0">More Details</a>
+                  
+               
+              </div>
             </div>
           </div>
         </div>
@@ -288,8 +330,7 @@ Proactiveness ,Innovativeness.
 
       <!-- get in touch -->
       
-      <!-- Footer -->
-      <%- include("./components/footer.ejs") %>
+       <%- include("./components/footer.ejs") %>
     </main>
 
     <!-- AOS JS -->
@@ -303,11 +344,534 @@ Proactiveness ,Innovativeness.
       });
     </script>
 
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Initialize Owl Carousel for Services -->
+    <script>
+      $(document).ready(function(){
+        var servicesCarousel = $("#servicesCarousel").owlCarousel({
+          loop: true,
+          margin: 30,
+          nav: true,
+          dots: false,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 2
+            },
+            1000: {
+              items: 3
+            }
+          },
+          navText: [
+            '<i class="fa-solid fa-chevron-left"></i>',
+            '<i class="fa-solid fa-chevron-right"></i>'
+          ],
+          onInitialized: function() {
+            setTimeout(equalizeCardHeights, 100);
+          },
+          onTranslated: function() {
+            setTimeout(equalizeCardHeights, 100);
+          }
+        });
+
+        // Function to equalize card heights within visible items
+        function equalizeCardHeights() {
+          var $carousel = $("#servicesCarousel");
+          var $visibleItems = $carousel.find(".owl-item.active:not(.cloned), .owl-item.active:not(.cloned)");
+          
+          // Reset heights first
+          $carousel.find(".owl-item .item .card").css('min-height', 'auto');
+          
+          // Process each group of visible items (based on items shown)
+          var itemsToShow = getCurrentItemsCount();
+          
+          $visibleItems.each(function(index) {
+            if (index % itemsToShow === 0) {
+              var $group = $visibleItems.slice(index, index + itemsToShow);
+              var maxHeight = 0;
+              
+              // Find max height in this group
+              $group.find(".item .card").each(function() {
+                var height = $(this).outerHeight();
+                if (height > maxHeight) {
+                  maxHeight = height;
+                }
+              });
+              
+              // Set all cards in group to max height
+              $group.find(".item .card").css('min-height', maxHeight + 'px');
+            }
+          });
+        }
+        
+        // Get current number of items to show based on screen size
+        function getCurrentItemsCount() {
+          var width = $(window).width();
+          if (width >= 1000) return 3;
+          if (width >= 600) return 2;
+          return 1;
+        }
+
+        // Equalize heights on window resize
+        var resizeTimer;
+        $(window).on('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            equalizeCardHeights();
+          }, 250);
+        });
+
+        // Initial equalization after page load
+        setTimeout(function() {
+          equalizeCardHeights();
+        }, 600);
+      });
+    </script>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+      <div
+        id="contactToast"
+        class="toast align-items-center text-bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div id="contactToastMessage" class="toast-body">
+            Message placeholder.
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
     <script src="/js/script.js"></script>
+    
+    <script>
+      // Due Date Reminder functionality
+      (function() {
+        const monthLinks = document.querySelectorAll('.month-link');
+        const contentContainer = document.getElementById('dueDateReminderContent');
+        const marqueeBox = document.getElementById('dueDateReminderMarquee');
+        let currentMonth = 'all';
+
+        // NOTE: For BLOGS we will render stored HTML as-is (including <a> tags),
+        // so we don't need to strip HTML here.
+
+        // Function to highlight selected month
+        function highlightMonth(selectedMonth) {
+          monthLinks.forEach(link => {
+            link.classList.remove('active-month');
+            if (link.getAttribute('data-month') === selectedMonth) {
+              link.classList.add('active-month');
+            }
+          });
+        }
+
+        // Function to load and display due date reminders
+        async function loadDueDateReminders(month = 'all') {
+          try {
+            const response = await fetch(`/api/due-date-reminders?month=${month}`);
+            const result = await response.json();
+
+            if (result.success && result.data && result.data.length > 0) {
+              // Clear existing content
+              contentContainer.innerHTML = '';
+
+              // Create content items
+              result.data.forEach(item => {
+                // Date element
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'news mb-3 fw-semibold';
+                dateDiv.textContent = item.date;
+
+                // Content element
+                const contentP = document.createElement('p');
+                contentP.className = 'news fs-6 lh-base';
+                // For BLOGS, render HTML content directly so that any <a> tags
+                // inside the content are visible and clickable in the widget box.
+                // This assumes the HTML stored for blogs is trusted.
+                contentP.innerHTML = item.content || '';
+
+                contentContainer.appendChild(dateDiv);
+                contentContainer.appendChild(contentP);
+              });
+
+              // Restart marquee animation
+              restartMarquee();
+            } else {
+              // No data available
+              contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">No reminders available</div>';
+            }
+
+            // Highlight the selected month
+            highlightMonth(month);
+            currentMonth = month;
+          } catch (error) {
+            console.error('Error loading due date reminders:', error);
+            contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">Error loading reminders</div>';
+          }
+        }
+
+        // Function to restart marquee animation
+        function restartMarquee() {
+          const content = contentContainer;
+          const box = marqueeBox;
+
+          if (!box || !content) return;
+
+          const boxHeight = box.offsetHeight;
+          const contentHeight = content.scrollHeight;
+
+          if (contentHeight > boxHeight) {
+            const duration = (contentHeight / 50) * 1000;
+            content.style.transform = `translateY(${boxHeight}px)`;
+            content.style.animation = `marquee ${duration}ms linear infinite`;
+          } else {
+            content.style.animation = 'none';
+            content.style.transform = 'translateY(0)';
+          }
+        }
+
+        // Add click handlers to month links
+        monthLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const month = this.getAttribute('data-month');
+            loadDueDateReminders(month);
+          });
+        });
+
+        // Load all reminders on page load
+        window.addEventListener('DOMContentLoaded', function() {
+          loadDueDateReminders('all');
+        });
+
+        // Also load when page is fully loaded (in case DOMContentLoaded already fired)
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            loadDueDateReminders('all');
+          });
+        } else {
+          loadDueDateReminders('all');
+        }
+      })();
+
+      // NEWS functionality
+      (function() {
+        const contentContainer = document.getElementById('newsContent');
+        const marqueeBox = document.getElementById('newsMarquee');
+
+        // Function to remove HTML tags and get plain text
+        function stripHtml(html) {
+          const tmp = document.createElement('DIV');
+          tmp.innerHTML = html;
+          return tmp.textContent || tmp.innerText || '';
+        }
+
+        // Function to restart marquee animation
+        function restartMarquee() {
+          const content = contentContainer;
+          const box = marqueeBox;
+
+          if (!box || !content) return;
+
+          const boxHeight = box.offsetHeight;
+          const contentHeight = content.scrollHeight;
+
+          if (contentHeight > boxHeight) {
+            const duration = (contentHeight / 50) * 1000;
+            content.style.transform = `translateY(${boxHeight}px)`;
+            content.style.animation = `marquee ${duration}ms linear infinite`;
+          } else {
+            content.style.animation = 'none';
+            content.style.transform = 'translateY(0)';
+          }
+        }
+
+        // Function to load and display news
+        async function loadNews() {
+          try {
+            const response = await fetch('/api/news');
+            const result = await response.json();
+
+            if (result.success && result.data && result.data.length > 0) {
+              // Clear existing content
+              contentContainer.innerHTML = '';
+
+              // Create content items
+              result.data.forEach(item => {
+                // Date element
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'news mb-3 fw-semibold';
+                dateDiv.textContent = item.date;
+
+                // Content element
+                const contentP = document.createElement('p');
+                contentP.className = 'news fs-6 lh-base';
+                // Strip HTML tags for display
+                const plainContent = stripHtml(item.content);
+                contentP.textContent = plainContent;
+
+                // If there's a link URL, wrap content in a link
+                if (item.linkUrl) {
+                  const linkWrapper = document.createElement('a');
+                  linkWrapper.href = item.linkUrl;
+                  linkWrapper.target = '_blank';
+                  linkWrapper.style.textDecoration = 'none';
+                  linkWrapper.style.color = 'inherit';
+                  linkWrapper.appendChild(contentP);
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(linkWrapper);
+                } else {
+                  contentContainer.appendChild(dateDiv);
+                  contentContainer.appendChild(contentP);
+                }
+              });
+
+              // Restart marquee animation
+              restartMarquee();
+            } else {
+              // No data available
+              contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">No news available</div>';
+            }
+          } catch (error) {
+            console.error('Error loading news:', error);
+            contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">Error loading news</div>';
+          }
+        }
+
+        // Load news on page load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadNews);
+        } else {
+          loadNews();
+        }
+      })();
+
+      // BLOGS functionality
+      (function() {
+        const contentContainer = document.getElementById('blogsContent');
+        const marqueeBox = document.getElementById('blogsMarquee');
+
+        // Function to restart marquee animation
+        function restartMarquee() {
+          const content = contentContainer;
+          const box = marqueeBox;
+
+          if (!box || !content) return;
+
+          const boxHeight = box.offsetHeight;
+          const contentHeight = content.scrollHeight;
+
+          if (contentHeight > boxHeight) {
+            const duration = (contentHeight / 50) * 1000;
+            content.style.transform = `translateY(${boxHeight}px)`;
+            content.style.animation = `marquee ${duration}ms linear infinite`;
+          } else {
+            content.style.animation = 'none';
+            content.style.transform = 'translateY(0)';
+          }
+        }
+
+        // Function to load and display blogs
+        async function loadBlogs() {
+          try {
+            const response = await fetch('/api/blogs');
+            const result = await response.json();
+
+            if (result.success && result.data && result.data.length > 0) {
+              // Clear existing content
+              contentContainer.innerHTML = '';
+
+              // Create content items
+              result.data.forEach(item => {
+                // Date element
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'news mb-3 fw-semibold';
+                dateDiv.textContent = item.date;
+
+                // Content element wrapper (use div so any <p> inside content is valid)
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'news fs-6 lh-base';
+                // For BLOGS, render HTML content directly so any <a> tags in the
+                // content are visible and clickable in the widget box.
+                // Assumes the BLOGS HTML stored in DB is trusted.
+                contentDiv.innerHTML = item.content || '';
+
+                contentContainer.appendChild(dateDiv);
+                contentContainer.appendChild(contentDiv);
+              });
+
+              // Restart marquee animation
+              restartMarquee();
+            } else {
+              // No data available
+              contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">No blogs available</div>';
+            }
+          } catch (error) {
+            console.error('Error loading blogs:', error);
+            contentContainer.innerHTML = '<div class="news mb-3 fw-semibold">Error loading blogs</div>';
+          }
+        }
+
+        // Load blogs on page load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadBlogs);
+        } else {
+          loadBlogs();
+        }
+      })();
+    </script>
+    
+    <style>
+      /* Highlight style for selected month */
+      .month-link.active-month {
+        background-color: #0d6efd;
+        color: white !important;
+        padding: 2px 8px;
+        border-radius: 3px;
+        font-weight: bold;
+      }
+      .month-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .month-link:hover {
+        color: #0d6efd;
+      }
+
+      /* Owl Carousel Services Custom Styles */
+      .services-carousel {
+        padding: 20px 0;
+      }
+
+      .services-carousel .owl-stage {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .services-carousel .owl-item {
+        padding: 0 10px;
+        display: flex;
+        align-items: stretch;
+        height: auto;
+      }
+
+      .services-carousel .owl-item > .item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .services-carousel .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+      }
+
+      .services-carousel .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .services-carousel .card-title {
+        flex-shrink: 0;
+      }
+
+      .services-carousel .card-text {
+        flex: 1;
+      }
+
+      .services-carousel .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+      }
+
+      .services-carousel .owl-nav {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .services-carousel .owl-nav button {
+        background-color: #0cacee !important;
+        color: white !important;
+        width: 45px;
+        height: 45px;
+        border-radius: 50% !important;
+        margin: 0 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 18px;
+      }
+
+      .services-carousel .owl-nav button:hover {
+        background-color: #0cacee !important;
+        transform: scale(1.1);
+      }
+
+      .services-carousel .owl-nav button:focus {
+        outline: none;
+      }
+
+      .services-carousel .owl-dots {
+        display: none !important;
+      }
+
+      .services-carousel .owl-dots button.owl-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #dee2e6 !important;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .services-carousel .owl-dots button.owl-dot.active {
+        background-color: #0cacee !important;
+        width: 30px;
+        border-radius: 6px;
+      }
+
+      .services-carousel .owl-dots button.owl-dot:focus {
+        outline: none;
+      }
+
+      @media (max-width: 768px) {
+        .services-carousel .owl-nav {
+          margin-top: 20px;
+        }
+        .services-carousel .owl-nav button {
+          width: 35px;
+          height: 35px;
+          font-size: 14px;
+          margin: 0 5px;
+        }
+      }
+    </style>
   </body>
 </html>
-
-
-
-
-

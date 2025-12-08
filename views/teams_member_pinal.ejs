@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1"
+      name="viewport"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Pinal Agarwal</title>
+  </head>
+
+  <body>
+    <main>
+      <!-- Nav bar -->
+      <%- include("./components/header.ejs") %>
+
+     
+
+      <div class="contact-us-section">
+        <div class="container">
+           <h5 class="fs-3 text-primary mb-4">Leadership Team</h5>
+            <div class="row">
+                <div class="col-md-12" style=" display: flex;justify-content: center;align-items: center;">
+
+                    
+                 
+                    <img src="/images/teams/blank.jpg" style="width: 220px;"/>
+                    </div>
+                    </div>
+                     <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    
+                        <h3 class="text-primary"><b> Pinal Agarwal </b></h3>
+                        <h4 class="text-primary">B.Com. and FCA</h4>
+                        
+                        
+
+                </div>
+            </div>
+
+
+          <div class="row">
+            <p>
+            Pinal has over 12 years of experience in the fields of accounting, statutory audit, and accounts outsourcing. She has extensive exposure to both large corporate and non-corporate entities and possesses all-round expertise in managing complex accounting and assurance assignments.   </p>
+     <p>
+ 	She holds a Bachelor’s degree in Commerce and has cleared the Intermediate (Level 2) examinations of the Chartered Accountancy course conducted by the Institute of Chartered Accountants of India (ICAI).
+</p>
+     <p>Her core areas of practice include GST laws, accounting services, and accounts outsourcing services to overseas clients. She has wide experience in reviewing accounting systems, implementing process improvements, and supporting audit teams in conducting statutory audits and tax audits.</p>
+     <p>She is committed to providing precise, concise, and clear professional opinions and consultancy to clients.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <%- include("./components/footer.ejs") %>
+    </main>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        offset: 100,
+      });
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
+

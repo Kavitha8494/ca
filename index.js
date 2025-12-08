@@ -398,9 +398,49 @@ app.get("/disclaimer", (req, res) => {
 app.get("/Services/audit-and-assurance", (req, res) => {
   res.render("audit-and-assurance", { title: "Audit and Assurance" });
 });
+app.get("/Services/internal-audit", (req, res) => {
+  res.render("internal-audit", { title: "Internal Audit" });
+});
+app.get("/Services/direct-tax", (req, res) => {
+  res.render("direct-tax", { title: "Direct Tax" });
+});
+
+app.get("/Services/international-taxation", (req, res) => {
+  res.render("international-taxation", { title: "International taxation" });
+});
+
+app.get("/Services/indirect-tax", (req, res) => {
+  res.render("indirect-tax", { title: "Indirect Tax" });
+});
+
+//legal-secretarial
+
+app.get("/Services/legal-secretarial", (req, res) => {
+  res.render("legal-secretarial", { title: "legal secretarial" });
+});
+
+app.get("/Services/outsourcing-solutions", (req, res) => {
+  res.render("outsourcing-solutions", { title: "outsourcing solutions" });
+});
+
+app.get("/Services/backoffice", (req, res) => {
+  res.render("backoffice", { title: "backoffice solutions" });
+});
 
 app.get("/query", (req, res) => {
   res.render("query", { title: "Query" });
+});
+
+app.get("/teams", (req, res) => {
+  res.render("teams", { title: "Teams" });
+});
+
+app.get("/teams/vishnu-agarwal", (req, res) => {
+  res.render("teams_member_visnhu", { title: "Vishnu Agarwal" });
+});
+
+app.get("/teams/pinal-agarwal", (req, res) => {
+  res.render("teams_member_pinal", { title: "Pinal Agarwal" });
 });
 
 

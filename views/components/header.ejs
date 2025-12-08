@@ -11,9 +11,14 @@
   .bg-primary{
     background-color: #0cacee !important;
   }
+  .btn-primary{
+    background-color: #0cacee !important;
+  }
   .quote-icon {
     color: #0cacee !important;
   }
+
+  
   .img-box {
   width: 170px;
   height: 200px;
@@ -39,13 +44,61 @@
   font-weight: 700;
 }
 .footer-bg {
-  background-color: #111111;
+  background-color: #08142b !important; 
+  /* background-color: rgba(0,0,0,0.25) !important; */
 }
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.7) !important;
   border-bottom: 1px solid #fff;
 }
+.service-bnr {
+  background-image: url(/images/black-bg.png) !important;
+  }
+  .bx-ser .fa {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    color: #0cacee !important;
+}
+.service-card  a{
+cursor: pointer; 
+text-decoration: none !important;
+}
+
+.banner-heading{
+  position: absolute;
+    left: 12%;
+    top: 50%;
+    z-index: 2;
+    padding: 8px 0;
+    color: #234762;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    }
+    .banner-heading span{
+      color: #4c9833 !important;
+    }
+    .v2{
+      
+    border: 2px solid #0d6efd;
+    border-radius: 46px;
+    left: 13px;
+    top: 40px;
+    content: &quot;&quot;;
+    width: 45px;
+
+    }
+    ::marker{
+   
+    color: #0d6efd !important;
+    }
+
+    .black-bg{
+      color: #111 !important;
+    }
+   
 </style>
 
 <!-- Nav bar -->
@@ -54,7 +107,7 @@
   class="navbar fixed-top navbar-expand-lg bg-light"
   data-aos="fade-down"
   data-aos-duration="900"
-  data-aos-delay="100" style=" background-color: rgba(255, 255, 255, 0.3) !important;
+  data-aos-delay="100" style=" background-color: #fff !important;
   backdrop-filter: blur(10px) !important;"
 >
   <div class="container">
@@ -106,18 +159,18 @@
           </a>
           <div class="dropdown">
             <a href="/Services/audit-and-assurance" style="color: black !important;" class="dropdown-item">Audit and Assurance</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">Internal audit</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">Direct Tax</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">International taxation</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">Indirect Tax</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">Legal and Secretarial compliances</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">Outsourcing solutions</a>
-            <a href="#" class="dropdown-item" style="color: black !important;">Back-office solutions</a>
+            <a href="/Services/internal-audit" class="dropdown-item" style="color: black !important;">Internal audit and Risk Advisory</a>
+            <a href="/Services/direct-tax" class="dropdown-item" style="color: black !important;">Direct Tax, Disputes & Advisory</a>
+            <a href="/Services/international-taxation" class="dropdown-item" style="color: black !important;">Cross-border Tax, TP & FEMA Advisory</a>
+            <a href="/Services/indirect-tax" class="dropdown-item" style="color: black !important;">GST and litigations</a>
+            <a href="/Services/legal-secretarial" class="dropdown-item" style="color: black !important;">Corporate Law, Secretarial & FEMA Compliance</a>
+            <a href="/Services/outsourcing-solutions" class="dropdown-item" style="color: black !important;">Global Outsourcing & Virtual CFO Services</a>
+            <a href="/Services/backoffice" class="dropdown-item" style="color: black !important;">Global Back-office solutions</a>
           </div>
         </li>
          <li class="nav-item" data-aos="fade-down" data-aos-delay="450">
           <a class="nav-link fs-6 text-uppercase text-black" style="color: black !important;" href="/teams"
-            >Teams</a
+            >Team</a
           >
         </li>
 
@@ -156,7 +209,7 @@
             ></a>
           </li>
           <li>
-            <a href="/careers" target="_blank"
+            <a href="/careers" 
               ><strong>Career</strong>
               <span
                 ><img
@@ -164,7 +217,7 @@
             ></a>
           </li>
           <li>
-            <a href="https://api.whatsapp.com/send?phone=919321052466&amp;;text=Hello" target="_blank"
+            <a href="https://api.whatsapp.com/send?phone=919321052466&amp;;text=Hello" 
               ><strong>Whats App</strong>
               <span
                 ><img
