@@ -1,21 +1,63 @@
 <style>
+  body{
+   overflow-x: hidden;
+  }
+  p{
+    font-size:14px !important;
+    font-family: Poppins !important;
+    text-align: justify !important;
+  }
+
+  .service-bnr .sec-bg {
+    width: 180%;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    top: 110px;
+    right: -87px;
+  }
+
+  .are-container{
+    margin-top: 60px;
+  }
+  
+  .descBox ul li {
+    line-height: 1;
+    font-size: 14px;
+  }
+
+  .logo-wrapper img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* .logo-img {
+    height: 60px;
+} */
+
+.ca-img {
+    height: 40px !important; 
+    width: 91px !important
+}
+  
   .text-primary{
-    color: #0cacee !important;
+    color: #0A5073 !important;
   }
   .newsTitle{
-    background-color: #0cacee !important;
+    background-color: #0A5073 !important;
   }
   .newsTitle::after{
-    border-top: 15px solid #0cacee !important;
+    border-top: 15px solid #0A5073 !important;
   }
   .bg-primary{
-    background-color: #0cacee !important;
+    background-color: #0A5073 !important;
   }
   .btn-primary{
-    background-color: #0cacee !important;
+    background-color: #0A5073 !important;
   }
   .quote-icon {
-    color: #0cacee !important;
+    color: #0A5073 !important;
   }
 
   
@@ -59,30 +101,95 @@
     width: 50px;
     height: 50px;
     font-size: 50px;
-    color: #0cacee !important;
+    color: #0A5073 !important;
 }
 .service-card  a{
 cursor: pointer; 
 text-decoration: none !important;
 }
 
-.banner-heading{
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* adjust your banner height */
+  overflow: hidden;
+}
+
+/* Background image with dark overlay */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), /* dark overlay */
+    url('images/carousel/banner-15.png') center/cover no-repeat;
+}
+
+.banner-image1 {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 0, 0,  0.8), rgba(0, 0, 0,  0.8)), /* dark overlay */
+    url('images/carousel/banner-9.jpeg') center/cover no-repeat;
+}
+
+.banner-image2 {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 0, 0,  0.8), rgba(0, 0, 0,  0.8)), /* dark overlay */
+    url('images/carousel/banner-17.png') center/cover no-repeat;
+}
+
+.banner-image3 {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), /* dark overlay */
+    url('images/carousel/banner-18.png') center/cover no-repeat;
+}
+
+/* Heading text */
+.banner-heading {
   position: absolute;
-    left: 12%;
-    top: 50%;
-    z-index: 2;
-    padding: 8px 0;
-    color: #234762;
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+}
+
+
+
+
     .banner-heading span{
-      color: #4c9833 !important;
+     font-size: 40px;
+    font-weight: bold;
+    font-family: open sans, Helvetica, Arial, sans-serif;
     }
+    .banner-heading p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 4px;
+    }
+
+    .banner-line{
+    width: 50%;
+    height: 2px;
+    background: #fff;
+    margin: 25px auto 15px auto;
+   
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 51%, rgba(0, 0, 0, 0.02) 99%, rgba(0, 0, 0, 0) 100%);
+    }
+
+
     .v2{
       
-    border: 2px solid #0d6efd;
+    border: 2px solid #0A5073;
     border-radius: 46px;
     left: 13px;
     top: 40px;
@@ -92,7 +199,7 @@ text-decoration: none !important;
     }
     ::marker{
    
-    color: #0d6efd !important;
+    color: #0A5073 !important;
     }
 
     .black-bg{
@@ -101,6 +208,11 @@ text-decoration: none !important;
 
     .navbar-brand img {
     width: 282px;
+}
+
+.sec-bg img{
+  width:684px !important;
+  height:320px !important;
 }
    
 </style>
@@ -115,16 +227,22 @@ text-decoration: none !important;
   backdrop-filter: blur(10px) !important;"
 >
   <div class="container">
+<div class="logo-wrapper">  
     <a
       class="navbar-brand"
       href="/"
       data-aos="fade-right"
       data-aos-delay="200"
     >
+    <!--<img
+        src="/images/ca.png"
+        alt="logo"  class="ca-img" 
+    />-->
       <img
         src="/images/logo.png"
-        alt="logo" 
+        alt="logo" class="logo-img" 
     /></a>
+    </div>
 
     <button
       class="navbar-toggler"

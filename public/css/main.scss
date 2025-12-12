@@ -403,13 +403,13 @@ ease-in-out;
     top: 50%;
     z-index: 2;
     padding: 8px 0;
-    color: #0d6efd;
+    color: #0A5073;
     font-size: 30px;
     line-height: 30px;
     font-weight: 600;
     &:after{
     position: absolute;
-    border: 2px solid #0d6efd;
+    border: 2px solid #0A5073;
     border-radius: 46px;
     left: 6px;
     top: -10px;
@@ -424,7 +424,7 @@ footer{
   .nav-item{
     .nav-link{
       &:hover{
-        color: #0d6efd !important;
+        color: #0A5073 !important;
       }
     }
     
@@ -443,7 +443,7 @@ footer{
   height: 36px;
   transition: 0.3s;
 } .social-links a .fa{ margin-right:0px;} .social-links a:hover {
-  background: #0d6efd;
+  background: #0A5073;
   color: #fff;
 }
 }
@@ -562,7 +562,7 @@ footer{
     left: 0;
     width: 9vw;
     height: 2px;
-    background-color: #0d6efd;
+    background-color: #0A5073;
     @media screen and (max-width:991px) {
     display: none;
   }
@@ -607,7 +607,7 @@ footer{
 
 
 .vl {
-    border-left: 4px solid #0d6efd;
+    border-left: 4px solid #0A5073;
     height: 500px;
     margin-top: 20px;
     margin-left: 25%;
@@ -619,7 +619,7 @@ footer{
   h3 {
     font-size: 16px;
     padding: 0 0 0 0;
-    color: #0d6efd;
+    color: #0A5073;
     margin-top: 15px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -628,7 +628,6 @@ footer{
   ul{
     li{
     line-height: 2;
-    font-size: 14px;
     color: #444444;
     position: relative;
     }
