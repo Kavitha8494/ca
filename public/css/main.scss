@@ -21,7 +21,7 @@ img {
 }
 
 .primary{
-  color: #0cacee;
+  color: #0A5073;
 }
 .secondary{
   color: #000000;
@@ -56,12 +56,12 @@ img {
   font-weight: 700;
 }
 .navbar-nav > li:hover > a:after{
-    background: #0cacee;
+    background: #0A5073;
     width: 80%;
     left: 10%;
 }
 .navbar-nav > li:hover > a {
-    color: #0cacee !important;
+    color: #0A5073 !important;
 }
 .navbar-nav > li > a:after{
     display: block;
@@ -184,7 +184,7 @@ ease-in-out;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    background: #0cacee;
+    background: #0A5073;
   }
   &::after{
     position: absolute;
@@ -193,7 +193,7 @@ ease-in-out;
     width: 10px;
     border-radius: 50%;
     background: #fff;
-    border: 2px solid #0cacee;
+    border: 2px solid #0A5073;
     box-shadow: 0 0 0 5px #fff;
     bottom: -14px;
     left: 50%;
@@ -210,7 +210,7 @@ ease-in-out;
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    background: #0cacee;
+    background: #0A5073;
   }
   &::after{
     position: absolute;
@@ -219,7 +219,7 @@ ease-in-out;
     width: 10px;
     border-radius: 50%;
     background: #fff;
-    border: 2px solid #0cacee;
+    border: 2px solid #0A5073;
     box-shadow: 0 0 0 5px #fff;
     bottom: -23px;
     left: 50%;
@@ -320,7 +320,7 @@ ease-in-out;
 }
 .carousel-item{
   h5{
-    color: #0cacee;
+    color: #0A5073;
     font-size: 1rem;
   }
   p{

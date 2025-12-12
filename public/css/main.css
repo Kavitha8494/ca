@@ -10780,7 +10780,7 @@ img {
 }
 
 .primary {
-  color: #0cacee;
+  color: #0A5073;
 }
 
 .secondary {
@@ -10815,13 +10815,13 @@ img {
 }
 
 .navbar-nav > li:hover > a:after {
-  background: #0cacee;
+  background: #0A5073;
   width: 80%;
   left: 10%;
 }
 
 .navbar-nav > li:hover > a {
-  color: #0cacee !important;
+  color: #0A5073 !important;
 }
 
 .navbar-nav > li > a:after {
@@ -10982,7 +10982,7 @@ img {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  background: #0cacee;
+  background: #0A5073;
 }
 .main-title::after {
   position: absolute;
@@ -10991,7 +10991,7 @@ img {
   width: 10px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid #0cacee;
+  border: 2px solid #0A5073;
   box-shadow: 0 0 0 5px #fff;
   bottom: -14px;
   left: 50%;
@@ -11009,7 +11009,7 @@ img {
   bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #0cacee;
+  background: #0A5073;
 }
 .desc::after {
   position: absolute;
@@ -11018,7 +11018,7 @@ img {
   width: 10px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid #0cacee;
+  border: 2px solid #0A5073;
   box-shadow: 0 0 0 5px #fff;
   bottom: -23px;
   left: 50%;
@@ -11123,7 +11123,7 @@ img {
 }
 
 .carousel-item h5, .carousel-item .h5 {
-  color: #0cacee;
+  color: #0A5073;
   font-size: 1rem;
 }
 .carousel-item p {
