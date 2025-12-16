@@ -386,6 +386,12 @@ ease-in-out;
     float: left;
     top: 85px;
     right: 0;
+    @media screen and (max-width:1200px) {
+      width: 100%;
+      right: 0;
+      top: 0;
+      float: none;
+    }
     @media screen and (max-width:991px) {
       display: none;
     }

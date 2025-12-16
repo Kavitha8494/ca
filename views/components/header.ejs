@@ -1,6 +1,13 @@
 <style>
   body{
    overflow-x: hidden;
+   width: 100%;
+   max-width: 100%;
+  }
+  html {
+   overflow-x: hidden;
+   width: 100%;
+   max-width: 100%;
   }
   p{
     font-size:14px !important;
@@ -16,6 +23,15 @@
     float: left;
     top: 110px;
     right: -87px;
+  }
+
+  @media (max-width: 768px) {
+    .service-bnr .sec-bg {
+      width: 100%;
+      right: 0;
+      top: 0;
+      float: none;
+    }
   }
 
   .are-container{
@@ -67,6 +83,13 @@
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
+}
+
+@media (max-width: 480px) {
+  .img-box {
+    width: 120px;
+    height: 140px;
+  }
 }
 
 .img-box img {
@@ -165,10 +188,12 @@ text-decoration: none !important;
 }
 
 /* Heading text */
+@media (max-width: 1280px) {
+
 .banner-heading {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 80%;
+  left: 47%;
   transform: translate(-50%, -50%);
   color: white;
   font-size: 48px;
@@ -176,9 +201,6 @@ text-decoration: none !important;
   text-align: center;
   z-index: 10;
 }
-
-
-
 
     .banner-heading span{
      font-size: 40px;
@@ -192,6 +214,67 @@ text-decoration: none !important;
     color: #fff;
     letter-spacing: 4px;
     }
+
+  }
+  @media (max-width: 500px) {
+
+    .banner-heading {
+  position: absolute;
+  top: 82%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+}
+
+    .banner-heading span{
+     font-size: 33px;
+    font-weight: bold;
+    font-family: open sans, Helvetica, Arial, sans-serif;
+    }
+    .banner-heading p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 4px;
+    }
+
+
+  }
+
+   @media (max-width: 350px) {
+
+    .banner-heading {
+  position: absolute;
+  top: 82%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+}
+
+    .banner-heading span{
+     font-size: 28px;
+    font-weight: bold;
+    font-family: open sans, Helvetica, Arial, sans-serif;
+    }
+    .banner-heading p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 4px;
+    }
+
+
+  }
 
     .banner-line{
     width: 50%;
